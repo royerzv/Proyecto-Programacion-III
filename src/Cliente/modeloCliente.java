@@ -87,4 +87,19 @@ public class modeloCliente {
     public void setListaCantones(List<Canton> listaCantones) {
         this.listaCantones = listaCantones;
     }
+
+    @Override
+    public String toString() {
+        return "modeloCliente{" +
+                "cliente=" + cliente +
+                ", provincia=" + provincia +
+                ", listaProvincias=" + listaProvincias +
+                ", direccion=" + direccion +
+                ", listaDirecciones=" + listaDirecciones +
+                ", canton=" + canton +
+                ", listaCantones=" + listaCantones +
+                ", distrito=" + distrito +
+                ", listaDistritos=" + listaDistritos +
+                '}';
+    }
 }
