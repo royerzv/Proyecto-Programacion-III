@@ -41,4 +41,13 @@ public class Cliente {
     public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "cedulaCli=" + cedulaCli +
+                ", nombre='" + nombre + '\'' +
+                ", direccion=" + direccion +
+                '}';
+    }
 }

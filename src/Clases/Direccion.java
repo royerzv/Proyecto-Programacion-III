@@ -41,4 +41,13 @@ public class Direccion {
     public void setDistrito(Distrito distrito) {
         this.distrito = distrito;
     }
+
+    @Override
+    public String toString() {
+        return "Direccion{" +
+                "provincia=" + provincia +
+                ", canton=" + canton +
+                ", distrito=" + distrito +
+                '}';
+    }
 }
