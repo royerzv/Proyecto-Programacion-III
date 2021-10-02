@@ -1,14 +1,25 @@
 package Prestamos;
 
+import Cliente.vistaCliente;
+
 public class modeloPrestamos {
     private double monto;
     private double tasaDeInteres;
     private double plazo;
+    private vistaCliente cliente;
 
-    public modeloPrestamos(double monto, double tasaDeInteres, double plazo) {
+    public modeloPrestamos(double monto, double tasaDeInteres, double plazo, vistaCliente cliente) {
         this.monto = monto;
         this.tasaDeInteres = tasaDeInteres;
         this.plazo = plazo;
+        this.cliente = cliente;
+    }
+
+    public modeloPrestamos(){
+        this.monto = 0;
+        this.tasaDeInteres = 0;
+        this.plazo = 0;
+        this.cliente = null;
     }
 
     public double getMonto() {
