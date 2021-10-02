@@ -1,7 +1,10 @@
 package Cliente;
 
+import Clases.LimitesProvincias;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class vistaCliente extends JFrame {
@@ -10,7 +13,7 @@ public class vistaCliente extends JFrame {
     private JComboBox<String> cantonComboBox;
     private JComboBox<String> distritoComboBox;
     private JLabel cantonTxtLabel, distritoTxtLabel, mapaProvincias, provinciaTxtLabel, txtLabelCedula, txtLabelNombre;
-    private javax.swing.JTextField provinciaTxtField, txtFieldCedula, txtFieldNombre;
+    private JTextField provinciaTxtField, txtFieldCedula, txtFieldNombre;
 
     public vistaCliente(){
         addComponents();
@@ -37,12 +40,13 @@ public class vistaCliente extends JFrame {
         mapaProvincias = new JLabel(); //ESTE NO OCUPA NOMBRE
 
         //SUBIR ICONOS
-
+        subirMapas();
         subirIconos();
 
         //AGREGAR ICONOS
         bntArchivo.setIcon(icons[1]);
         bntBuscar.setIcon(icons[2]);
+        mapaProvincias.setIcon(mapasProv[0]);
 
         //General Arriba Ventana
         setName("Clientes");
@@ -70,7 +74,7 @@ public class vistaCliente extends JFrame {
         btnPrestamos.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnPrestamos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnPrestamos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 //btnPrestamosActionPerformed(evt);
             }
         });
@@ -83,22 +87,22 @@ public class vistaCliente extends JFrame {
         });
 
         bntBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 //bntBuscarActionPerformed(evt);
             }
         });
 
         /*
         //ACTIONS PERFORMED BOTONES Y TEXT FIELD
-        private void txtFieldCedulaActionPerformed(java.awt.event.ActionEvent evt) {
+        private void txtFieldCedulaActionPerformed(ActionEvent evt) {
             // TODO add your handling code here:
         }
 
-        private void bntBuscarActionPerformed(java.awt.event.ActionEvent evt) {
+        private void bntBuscarActionPerformed(ActionEvent evt) {
             // TODO add your handling code here:
         }
 
-        private void btnPrestamosActionPerformed(java.awt.event.ActionEvent evt) {
+        private void btnPrestamosActionPerformed(ActionEvent evt) {
             // TODO add your handling code here:
         }*/
 
@@ -116,7 +120,7 @@ public class vistaCliente extends JFrame {
         .addGap(18, 18, 18))).addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(distritoTxtLabel).addGroup(layout.createSequentialGroup()
         .addComponent(distritoComboBox, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE).addGap(28, 28, 28)
         .addComponent(bntArchivo, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)))).addComponent(mapaProvincias, GroupLayout.PREFERRED_SIZE, 409, GroupLayout.PREFERRED_SIZE))
-        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE).addComponent(btnPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE).addComponent(btnPrestamos, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
         .addContainerGap()));
 
         layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -132,7 +136,7 @@ public class vistaCliente extends JFrame {
         .addComponent(bntArchivo, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
         .addComponent(cantonComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         .addComponent(provinciaTxtField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)).addGap(18, 18, 18)
-        .addComponent(mapaProvincias, GroupLayout.PREFERRED_SIZE, 355, GroupLayout.PREFERRED_SIZE)).addGroup(layout.createSequentialGroup()
+        .addComponent(mapaProvincias, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)).addGroup(layout.createSequentialGroup()
         .addGap(94, 94, 94).addComponent(btnPrestamos, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE))).addContainerGap(26, Short.MAX_VALUE)));
 
 
@@ -140,13 +144,34 @@ public class vistaCliente extends JFrame {
 
     }
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jTextField1ActionPerformed(ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton1ActionPerformed(ActionEvent evt) {
         // TODO add your handling code here:
     }
+
+
+    ImageIcon[] mapasProv = new ImageIcon[8];
+    private LimitesProvincias mapasProvincias = new LimitesProvincias();
+    private boolean isMapa = false;
+
+    public void subirMapas() {
+        try {
+            mapasProv[0] = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("mapas/Mapa-0.jpeg")));
+            mapasProv[1] = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("mapas/Mapa-1.jpeg")));
+            mapasProv[2] = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("mapas/Mapa-2.jpeg")));
+            mapasProv[3] = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("mapas/Mapa-3.jpeg")));
+            mapasProv[4] = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("mapas/Mapa-4.jpeg")));
+            mapasProv[5] = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("mapas/Mapa-5.jpeg")));
+            mapasProv[6] = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("mapas/Mapa-6.jpeg")));
+            mapasProv[7] = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("mapas/Mapa-7.jpeg")));
+        } catch (IOException e) {
+            System.err.println(e);
+        }
+    }
+
 
     ImageIcon[] icons = new ImageIcon[3];
     public void subirIconos() {

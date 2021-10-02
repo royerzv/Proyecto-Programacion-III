@@ -2,7 +2,7 @@ package Clases;
 
 import java.awt.*;
 
-public class limitesProvincias {
+public class LimitesProvincias {
 
     Polygon herediaProv, sanJoseProv, alajuelaProv, cartagoProv, guanacasteProv, limonProv, puntareanasProv;
 
@@ -10,30 +10,62 @@ public class limitesProvincias {
     public void limitCoordMapas(){
 
         //PUNTOS HEREDIA
-        herediaProv.addPoint(263, 73);
         herediaProv.addPoint(235,65);
         herediaProv.addPoint(235,105);
         herediaProv.addPoint(235,137);
-        herediaProv.addPoint(285,69);
-        herediaProv.addPoint(259,135);
-        herediaProv.addPoint(270,116);
         herediaProv.addPoint(232,165);
-        herediaProv.addPoint(243,165);
         herediaProv.addPoint(250,158);
         herediaProv.addPoint(243,142);
+        herediaProv.addPoint(259,135);
+        herediaProv.addPoint(270,116);
         herediaProv.addPoint(274,94);
         herediaProv.addPoint(273,81);
+        herediaProv.addPoint(285,69);
+        herediaProv.addPoint(263, 73);
+        herediaProv.addPoint(235,65);
+        //herediaProv.addPoint(235,65);
+        //herediaProv.addPoint(235,105);
+        //herediaProv.addPoint(235,137);
+        //herediaProv.addPoint(285,69);
+       // herediaProv.addPoint(259,135);
+        //herediaProv.addPoint(270,116);
+        //herediaProv.addPoint(232,165);
+        //herediaProv.addPoint(243,165);
+        //herediaProv.addPoint(250,158);
+        //herediaProv.addPoint(243,142);
+        //herediaProv.addPoint(274,94);
+        //herediaProv.addPoint(273,81);
 
         //PUNTOS SAN JOSE
 
         sanJoseProv.addPoint(260,140);
         sanJoseProv.addPoint(248, 145);
         sanJoseProv.addPoint(255, 159);
-        sanJoseProv.addPoint(261,152);
-        sanJoseProv.addPoint(268,165);
         sanJoseProv.addPoint(251,166);
-        sanJoseProv.addPoint(249, 175);
         sanJoseProv.addPoint(230,170);
+        sanJoseProv.addPoint(190,179);
+        sanJoseProv.addPoint(182,196);
+        sanJoseProv.addPoint(188,214);
+        sanJoseProv.addPoint(200,208);
+        sanJoseProv.addPoint(238,210);
+        sanJoseProv.addPoint(293,263);
+        sanJoseProv.addPoint(311,279);
+        sanJoseProv.addPoint(324,243);
+        sanJoseProv.addPoint(299,222);
+        sanJoseProv.addPoint(289,225);
+        sanJoseProv.addPoint(242,195);
+        sanJoseProv.addPoint(250,180);
+        sanJoseProv.addPoint(246,177);
+        sanJoseProv.addPoint(243,173);
+        sanJoseProv.addPoint(268,165);
+        sanJoseProv.addPoint(261,152);
+        sanJoseProv.addPoint(260,140);
+
+        /*
+        sanJoseProv.addPoint(268,165);
+        //sanJoseProv.addPoint(251,166);
+        sanJoseProv.addPoint(249, 175);
+        //sanJoseProv.addPoint(230,170);
         sanJoseProv.addPoint(246,184);
         sanJoseProv.addPoint(207,175);
         sanJoseProv.addPoint(242,195);
@@ -50,12 +82,29 @@ public class limitesProvincias {
         sanJoseProv.addPoint(200,208);
         sanJoseProv.addPoint(188,214);
         sanJoseProv.addPoint(182,196);
-        sanJoseProv.addPoint(190,179);
+        //sanJoseProv.addPoint(190,179);*/
 
 
         //PUNTOS LIMON
 
         limonProv.addPoint(298,52);
+        limonProv.addPoint(294,76);
+        limonProv.addPoint(280,81);
+        limonProv.addPoint(277,124);
+        limonProv.addPoint(265,142);
+        limonProv.addPoint(305,162);
+        limonProv.addPoint(343,164);
+        limonProv.addPoint(323,233);
+        limonProv.addPoint(361,249);
+        limonProv.addPoint(387,277);
+        limonProv.addPoint(386,230);
+        limonProv.addPoint(401,209);
+        limonProv.addPoint(428,233);
+        limonProv.addPoint(395,195);
+        limonProv.addPoint(350,142);
+        limonProv.addPoint(298,52);
+
+        /*
         limonProv.addPoint(320,102);
         limonProv.addPoint(350,142);
         limonProv.addPoint(395,195);
@@ -71,7 +120,7 @@ public class limitesProvincias {
         limonProv.addPoint(265,142);
         limonProv.addPoint(280,100);
         limonProv.addPoint(294,76);
-
+        */
 
         //PUNTOS ALAJUELA
 
@@ -129,5 +178,48 @@ public class limitesProvincias {
         puntareanasProv.addPoint(178,163);
         puntareanasProv.addPoint(166,174);
         puntareanasProv.addPoint(178,184);
+        puntareanasProv.addPoint(174,188);
+        puntareanasProv.addPoint(164,176);
+        puntareanasProv.addPoint(160,166);
+        puntareanasProv.addPoint(148,163);
+        puntareanasProv.addPoint(122,143);
+        puntareanasProv.addPoint(164,176);
+        puntareanasProv.addPoint(172,209);
+        puntareanasProv.addPoint(182,191);
+        puntareanasProv.addPoint(182,191);
+        puntareanasProv.addPoint(177,193);
+        puntareanasProv.addPoint(185,218);
+        puntareanasProv.addPoint(182,191);
+        puntareanasProv.addPoint(203,219);
+        puntareanasProv.addPoint(215,211);
+        puntareanasProv.addPoint(222,225);
+        puntareanasProv.addPoint(261,243);
+        puntareanasProv.addPoint(276,261);
+        puntareanasProv.addPoint(287,261);
+        puntareanasProv.addPoint(288,270);
+        puntareanasProv.addPoint(298,275);
+        puntareanasProv.addPoint(305,287);
+        puntareanasProv.addPoint(318,285);
+        puntareanasProv.addPoint(324,254);
+        puntareanasProv.addPoint(341,249);
+        puntareanasProv.addPoint(305,323);
+        puntareanasProv.addPoint(290,342);
+        puntareanasProv.addPoint(318,332);
+        puntareanasProv.addPoint(326,363);
+        puntareanasProv.addPoint(343,369);
+        puntareanasProv.addPoint(339,351);
+        puntareanasProv.addPoint(340,325);
+        puntareanasProv.addPoint(375,274);
+        puntareanasProv.addPoint(414,298);
+        puntareanasProv.addPoint(395,311);
+        puntareanasProv.addPoint(389,324);
+        puntareanasProv.addPoint(401,348);
+        puntareanasProv.addPoint(389,363);
+        puntareanasProv.addPoint(372,377);
+        puntareanasProv.addPoint(393,400);
+        puntareanasProv.addPoint(365,373);
+        puntareanasProv.addPoint(371,364);
+        puntareanasProv.addPoint(367,343);
+
     }
 }
