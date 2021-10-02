@@ -222,4 +222,60 @@ public class LimitesProvincias {
         puntareanasProv.addPoint(367,343);
 
     }
+
+    public Polygon getHerediaProv() {
+        return herediaProv;
+    }
+
+    public void setHerediaProv(Polygon herediaProv) {
+        this.herediaProv = herediaProv;
+    }
+
+    public Polygon getSanJoseProv() {
+        return sanJoseProv;
+    }
+
+    public void setSanJoseProv(Polygon sanJoseProv) {
+        this.sanJoseProv = sanJoseProv;
+    }
+
+    public Polygon getAlajuelaProv() {
+        return alajuelaProv;
+    }
+
+    public void setAlajuelaProv(Polygon alajuelaProv) {
+        this.alajuelaProv = alajuelaProv;
+    }
+
+    public Polygon getCartagoProv() {
+        return cartagoProv;
+    }
+
+    public void setCartagoProv(Polygon cartagoProv) {
+        this.cartagoProv = cartagoProv;
+    }
+
+    public Polygon getGuanacasteProv() {
+        return guanacasteProv;
+    }
+
+    public void setGuanacasteProv(Polygon guanacasteProv) {
+        this.guanacasteProv = guanacasteProv;
+    }
+
+    public Polygon getLimonProv() {
+        return limonProv;
+    }
+
+    public void setLimonProv(Polygon limonProv) {
+        this.limonProv = limonProv;
+    }
+
+    public Polygon getPuntareanasProv() {
+        return puntareanasProv;
+    }
+
+    public void setPuntareanasProv(Polygon puntareanasProv) {
+        this.puntareanasProv = puntareanasProv;
+    }
 }

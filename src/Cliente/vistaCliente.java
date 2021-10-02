@@ -1,10 +1,10 @@
 package Cliente;
 
 import Clases.LimitesProvincias;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 public class vistaCliente extends JFrame {
@@ -14,9 +14,67 @@ public class vistaCliente extends JFrame {
     private JComboBox<String> distritoComboBox;
     private JLabel cantonTxtLabel, distritoTxtLabel, mapaProvincias, provinciaTxtLabel, txtLabelCedula, txtLabelNombre;
     private JTextField provinciaTxtField, txtFieldCedula, txtFieldNombre;
+    private LimitesProvincias provincias;
+
 
     public vistaCliente(){
+        provincias = new LimitesProvincias();
         addComponents();
+    }
+
+    public int seleccionProvincia() {
+        int numProvincia = 0;
+        if (provinciaTxtField.getText() != null) {
+            switch (provinciaTxtField.getText()) {
+                case "San Jose":
+                    numProvincia = 1;
+                    break;
+                case "Alajuela":
+                    numProvincia = 2;
+                    break;
+                case "Cartago":
+                    numProvincia = 3;
+                    break;
+                case "Heredia":
+                    numProvincia = 4;
+                    break;
+                case "Guanacaste":
+                    numProvincia = 5;
+                    break;
+                case "Puntarenas":
+                    numProvincia = 6;
+                    break;
+                case "Limon":
+                    numProvincia = 7;
+                    break;
+                default:
+                    break;
+            }
+        }
+        return numProvincia;
+    }
+
+
+    private void mouseMotionAdapterMapa(MouseEvent evt){
+        if(!isMapa){
+            int provIndex = -1;
+            if(provincias.getSanJoseProv().contains(evt.getX(), evt.getY())){
+                provIndex = 0;
+            } else if(provincias.getAlajuelaProv().contains(evt.getX(), evt.getY())){
+                provIndex = 1;
+            } else if(provincias.getCartagoProv().contains(evt.getX(), evt.getY())){
+                provIndex = 2;
+            } else if(provincias.getHerediaProv().contains(evt.getX(), evt.getY())){
+                provIndex = 3;
+            } else if(provincias.getGuanacasteProv().contains(evt.getX(), evt.getY())){
+                provIndex = 4;
+            } else if(provincias.getPuntareanasProv().contains(evt.getX(), evt.getY())){
+                provIndex = 5;
+            } else if(provincias.getLimonProv().contains(evt.getX(), evt.getY())) {
+                provIndex = 6;
+            }
+            mapaProvincias.setIcon(mapasProv[provIndex + 1]);
+        }
     }
 
     public void displayErrorMessage(String errorMessage){
