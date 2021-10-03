@@ -27,4 +27,13 @@ public class controladorPrestamos {
             }
         }
     }
+
+    public void show(){
+        this.vistaPrestamos.setVisible(true);
+    }
+
+    public void hide(){
+        this.vistaPrestamos.setVisible(false);
+
+    }
 }
