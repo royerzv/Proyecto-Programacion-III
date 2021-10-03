@@ -3,8 +3,11 @@ package Cliente;
 import Clases.LimitesProvincias;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.io.IOException;
 
 public class vistaCliente extends JFrame {
@@ -55,27 +58,6 @@ public class vistaCliente extends JFrame {
     }
 
 
-    private void mouseMotionAdapterMapa(MouseEvent evt){
-        if(!isMapa){
-            int provIndex = -1;
-            if(provincias.getSanJoseProv().contains(evt.getX(), evt.getY())){
-                provIndex = 0;
-            } else if(provincias.getAlajuelaProv().contains(evt.getX(), evt.getY())){
-                provIndex = 1;
-            } else if(provincias.getCartagoProv().contains(evt.getX(), evt.getY())){
-                provIndex = 2;
-            } else if(provincias.getHerediaProv().contains(evt.getX(), evt.getY())){
-                provIndex = 3;
-            } else if(provincias.getGuanacasteProv().contains(evt.getX(), evt.getY())){
-                provIndex = 4;
-            } else if(provincias.getPuntareanasProv().contains(evt.getX(), evt.getY())){
-                provIndex = 5;
-            } else if(provincias.getLimonProv().contains(evt.getX(), evt.getY())) {
-                provIndex = 6;
-            }
-            mapaProvincias.setIcon(mapasProv[provIndex + 1]);
-        }
-    }
 
     public void displayErrorMessage(String errorMessage){
         JOptionPane.showMessageDialog(this, errorMessage, "Error de formato!", JOptionPane.ERROR_MESSAGE);
@@ -144,11 +126,62 @@ public class vistaCliente extends JFrame {
             }
         });
 
-        bntBuscar.addActionListener(new java.awt.event.ActionListener() {
+        bntBuscar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 //bntBuscarActionPerformed(evt);
             }
         });
+
+        mapaProvincias.addMouseMotionListener(new MouseMotionAdapter() {
+            private void mapaProvinciasMouseClicked(MouseEvent evt) {
+                String provIndex = "0";
+                if (evt.getClickCount() == 1) {
+                    if (provincias.getSanJoseProv().contains(evt.getX(), evt.getY())) {
+                        provIndex = "1";
+                    } else if (provincias.getAlajuelaProv().contains(evt.getX(), evt.getY())) {
+                        provIndex = "2";
+                    } else if (provincias.getCartagoProv().contains(evt.getX(), evt.getY())) {
+                        provIndex = "3";
+                    } else if (provincias.getHerediaProv().contains(evt.getX(), evt.getY())) {
+                        provIndex = "4";
+                    } else if (provincias.getGuanacasteProv().contains(evt.getX(), evt.getY())) {
+                        provIndex = "5";
+                    } else if (provincias.getPuntareanasProv().contains(evt.getX(), evt.getY())) {
+                        provIndex = "6";
+                    } else if (provincias.getLimonProv().contains(evt.getX(), evt.getY())) {
+                        provIndex = "7";
+                    }
+                    mapaProvincias.setIcon(mapasProv[Integer.parseInt(provIndex)]);
+                    //controladorCliente.getProvincia(provIndex);
+                    //controladorCliente.getCantonesDeProvincia(provIndex);
+                    //controladorCliente.getDistritosdeCanton("1");
+                }
+            }
+        });
+
+        mapaProvincias.setText("mapaP");
+        mapaProvincias.addMouseMotionListener(new MouseMotionAdapter() {
+            public void mouseMoved(MouseEvent evt) {
+                int provIndex = 0;
+                if(provincias.getSanJoseProv().contains(evt.getX(), evt.getY())){
+                    provIndex = 1;
+                } else if(provincias.getAlajuelaProv().contains(evt.getX(), evt.getY())){
+                    provIndex = 2;
+                } else if(provincias.getCartagoProv().contains(evt.getX(), evt.getY())){
+                    provIndex = 3;
+                } else if(provincias.getHerediaProv().contains(evt.getX(), evt.getY())){
+                    provIndex = 4;
+                } else if(provincias.getGuanacasteProv().contains(evt.getX(), evt.getY())){
+                    provIndex = 5;
+                } else if(provincias.getPuntareanasProv().contains(evt.getX(), evt.getY())){
+                    provIndex = 6;
+                } else if(provincias.getLimonProv().contains(evt.getX(), evt.getY())) {
+                    provIndex = 7;
+                }
+                mapaProvincias.setIcon(mapasProv[provIndex]);
+            }
+        });
+
 
         /*
         //ACTIONS PERFORMED BOTONES Y TEXT FIELD
@@ -196,6 +229,7 @@ public class vistaCliente extends JFrame {
         .addComponent(provinciaTxtField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)).addGap(18, 18, 18)
         .addComponent(mapaProvincias, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)).addGroup(layout.createSequentialGroup()
         .addGap(94, 94, 94).addComponent(btnPrestamos, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE))).addContainerGap(26, Short.MAX_VALUE)));
+        mapaProvincias.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
 
 
         pack();
