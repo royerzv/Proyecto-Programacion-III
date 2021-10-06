@@ -1,4 +1,4 @@
-package Cliente;
+package ClienteP;
 
 import Clases.LimitesProvincias;
 import javax.imageio.ImageIO;
@@ -152,9 +152,7 @@ public class vistaCliente extends JFrame {
                         provIndex = "7";
                     }
                     mapaProvincias.setIcon(mapasProv[Integer.parseInt(provIndex)]);
-                    //controladorCliente.getProvincia(provIndex);
-                    //controladorCliente.getCantonesDeProvincia(provIndex);
-                    //controladorCliente.getDistritosdeCanton("1");
+
                 }
             }
         });
@@ -210,7 +208,7 @@ public class vistaCliente extends JFrame {
         .addGroup(layout.createSequentialGroup().addComponent(provinciaTxtField).addGap(18, 18, 18).addComponent(cantonComboBox, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
         .addGap(18, 18, 18))).addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(distritoTxtLabel).addGroup(layout.createSequentialGroup()
         .addComponent(distritoComboBox, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE).addGap(28, 28, 28)
-        .addComponent(bntArchivo, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)))).addComponent(mapaProvincias, GroupLayout.PREFERRED_SIZE, 409, GroupLayout.PREFERRED_SIZE))
+        .addComponent(bntArchivo, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)))).addComponent(mapaProvincias, GroupLayout.PREFERRED_SIZE, 447, GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE).addComponent(btnPrestamos, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
         .addContainerGap()));
 
@@ -227,7 +225,7 @@ public class vistaCliente extends JFrame {
         .addComponent(bntArchivo, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
         .addComponent(cantonComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         .addComponent(provinciaTxtField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)).addGap(18, 18, 18)
-        .addComponent(mapaProvincias, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)).addGroup(layout.createSequentialGroup()
+        .addComponent(mapaProvincias, GroupLayout.PREFERRED_SIZE, 447, GroupLayout.PREFERRED_SIZE)).addGroup(layout.createSequentialGroup()
         .addGap(94, 94, 94).addComponent(btnPrestamos, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE))).addContainerGap(26, Short.MAX_VALUE)));
         mapaProvincias.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
 

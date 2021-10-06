@@ -1,10 +1,8 @@
 package Prestamos;
 
-import Cliente.vistaCliente;
 import Parser.JAXBParser;
 
 import javax.swing.*;
-import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
 

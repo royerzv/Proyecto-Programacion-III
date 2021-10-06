@@ -1,4 +1,4 @@
-package Cliente;
+package ClienteP;
 
 import Clases.*;
 
@@ -7,6 +7,7 @@ import java.util.List;
 public class modeloCliente {
 
     Cliente cliente;
+    List<Cliente> clientes;
     Provincia provincia;
     List<Provincia> listaProvincias;
     Direccion direccion;
@@ -38,6 +39,14 @@ public class modeloCliente {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public List<Cliente> getClientes(List<Cliente> clientes) {
+        return this.clientes;
+    }
+
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
     }
 
     public Provincia getProvincia() {

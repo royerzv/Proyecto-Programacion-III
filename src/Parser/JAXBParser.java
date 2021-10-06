@@ -7,6 +7,21 @@ import java.io.FileOutputStream;
 import java.io.File;
 
 public class JAXBParser {
+    /*
+
+    private String path;
+    private static JAXBParser theInstance;
+    public static JAXBParser instance(){
+        if (theInstance==null){
+            theInstance=new JAXBParser("prestamos.xml");
+        }
+        return theInstance;
+    }
+
+    public JAXBParser(String p) {
+        path=p;
+    }
+*/
     public void marshall(Object obj, String filename){
         try{
             JAXBContext jContext = JAXBContext.newInstance(obj.getClass());

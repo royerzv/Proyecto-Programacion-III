@@ -2,27 +2,27 @@ package Clases;
 
 public class Cliente {
 
-    private int cedulaCli;
+    private String cedulaCli;
     private String nombre;
     Direccion direccion;
 
     public Cliente() {
-        this.cedulaCli = 0;
+        this.cedulaCli = "";
         this.nombre = "";
         this.direccion = new Direccion();
     }
 
-    public Cliente(int cedulaCli, String nombre, Direccion direccion) {
+    public Cliente(String cedulaCli, String nombre, Direccion direccion) {
         this.cedulaCli = cedulaCli;
         this.nombre = nombre;
         this.direccion = direccion;
     }
 
-    public int getCedulaCli() {
+    public String getCedulaCli() {
         return cedulaCli;
     }
 
-    public void setCedulaCli(int cedulaCli) {
+    public void setCedulaCli(String cedulaCli) {
         this.cedulaCli = cedulaCli;
     }
 

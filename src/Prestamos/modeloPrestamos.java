@@ -1,27 +1,29 @@
 package Prestamos;
 
-import Cliente.vistaCliente;
+import Clases.Prestamo;
+import ClienteP.vistaCliente;
 
 public class modeloPrestamos {
-    private double monto;
-    private double tasaDeInteres;
-    private double plazo;
+    //private double monto;
+    //private double tasaDeInteres;
+    //private double plazo;
+    private Prestamo prestamos;
     private vistaCliente cliente;
 
     public modeloPrestamos(double monto, double tasaDeInteres, double plazo, vistaCliente cliente) {
-        this.monto = monto;
-        this.tasaDeInteres = tasaDeInteres;
-        this.plazo = plazo;
+        //this.monto = monto;
+        //this.tasaDeInteres = tasaDeInteres;
+        //this.plazo = plazo;
         this.cliente = cliente;
     }
 
     public modeloPrestamos(){
-        this.monto = 0;
-        this.tasaDeInteres = 0;
-        this.plazo = 0;
+        //this.monto = 0;
+        //this.tasaDeInteres = 0;
+        //this.plazo = 0;
         this.cliente = null;
     }
-
+/*
     public double getMonto() {
         return monto;
     }
@@ -45,8 +47,10 @@ public class modeloPrestamos {
     public void setPlazo(double plazo) {
         this.plazo = plazo;
     }
-
+*/
     public double calculoCuota() {
-        return (monto * tasaDeInteres) / (1 - Math.pow((1 + tasaDeInteres), -plazo));
+        return (prestamos.getMonto() * prestamos.getTasaDeInteres()) / (1 - Math.pow((1 + prestamos.getTasaDeInteres()), -prestamos.getPlazo()));
     }
+
+
 }

@@ -122,6 +122,126 @@ public class LimitesProvincias {
 
         //PUNTOS PUNTARENAS
 
+
+        puntareanasProv.addPoint(111, 217);
+        puntareanasProv.addPoint(108, 210);
+        puntareanasProv.addPoint(99, 199);
+        puntareanasProv.addPoint(104, 192);
+        puntareanasProv.addPoint(106, 181);
+        puntareanasProv.addPoint(99, 173);
+        puntareanasProv.addPoint(89, 172);
+        puntareanasProv.addPoint(93, 169);
+        puntareanasProv.addPoint(106, 165);
+        puntareanasProv.addPoint(106, 153);
+        puntareanasProv.addPoint(103, 151);
+        puntareanasProv.addPoint(103, 147);
+        puntareanasProv.addPoint(112, 150);
+        puntareanasProv.addPoint(107, 153);
+        puntareanasProv.addPoint(107, 165);
+        puntareanasProv.addPoint(120, 168);
+        puntareanasProv.addPoint(120, 143);
+        puntareanasProv.addPoint(128, 143);
+        puntareanasProv.addPoint(136, 149);
+        puntareanasProv.addPoint(145, 138);
+        puntareanasProv.addPoint(145, 124);
+        puntareanasProv.addPoint(150, 121);
+        puntareanasProv.addPoint(159, 130);
+        puntareanasProv.addPoint(167, 127);
+        puntareanasProv.addPoint(170, 132);
+        puntareanasProv.addPoint(167, 136);
+        puntareanasProv.addPoint(167, 148);
+        puntareanasProv.addPoint(179, 164);
+        puntareanasProv.addPoint(167, 175);
+        puntareanasProv.addPoint(168, 179);
+        puntareanasProv.addPoint(176, 182);
+        puntareanasProv.addPoint(183, 192);
+        puntareanasProv.addPoint(177, 193);
+        puntareanasProv.addPoint(184, 218);
+        puntareanasProv.addPoint(201, 219);
+        puntareanasProv.addPoint(205, 212);
+        puntareanasProv.addPoint(234, 213);
+        puntareanasProv.addPoint(235, 221);
+        puntareanasProv.addPoint(243, 222);
+        puntareanasProv.addPoint(243, 227);
+        puntareanasProv.addPoint(261, 243);
+        puntareanasProv.addPoint(265, 241);
+        puntareanasProv.addPoint(272, 250);
+        puntareanasProv.addPoint(274, 259);
+        puntareanasProv.addPoint(284, 265);
+        puntareanasProv.addPoint(288, 263);
+        puntareanasProv.addPoint(293, 267);
+        puntareanasProv.addPoint(295, 274);
+        puntareanasProv.addPoint(308, 282);
+        puntareanasProv.addPoint(316, 285);
+        puntareanasProv.addPoint(322, 279);
+        puntareanasProv.addPoint(323, 267);
+        puntareanasProv.addPoint(319, 265);
+        puntareanasProv.addPoint(325, 250);
+        puntareanasProv.addPoint(336, 250);
+        puntareanasProv.addPoint(341, 246);
+        puntareanasProv.addPoint(350, 252);
+        puntareanasProv.addPoint(360, 253);
+        puntareanasProv.addPoint(371, 364);
+        puntareanasProv.addPoint(372, 273);
+        puntareanasProv.addPoint(379, 275);
+        puntareanasProv.addPoint(384, 283);
+        puntareanasProv.addPoint(406, 293);
+        puntareanasProv.addPoint(416, 299);
+        puntareanasProv.addPoint(407, 306);
+        puntareanasProv.addPoint(395, 311);
+        puntareanasProv.addPoint(390, 325);
+        puntareanasProv.addPoint(400, 339);
+        puntareanasProv.addPoint(400, 359);
+        puntareanasProv.addPoint(390, 363);
+        puntareanasProv.addPoint(374, 378);
+        puntareanasProv.addPoint(383, 386);
+        puntareanasProv.addPoint(388, 386);
+        puntareanasProv.addPoint(392, 397);
+        puntareanasProv.addPoint(394, 413);
+        puntareanasProv.addPoint(390, 397);
+        puntareanasProv.addPoint(382, 388);
+        puntareanasProv.addPoint(363, 374);
+        puntareanasProv.addPoint(370, 362);
+        puntareanasProv.addPoint(356, 337);
+        puntareanasProv.addPoint(341, 333);
+        puntareanasProv.addPoint(341, 326);
+        puntareanasProv.addPoint(330, 325);
+        puntareanasProv.addPoint(317, 329);
+        puntareanasProv.addPoint(324, 337);
+        puntareanasProv.addPoint(324, 342);
+        puntareanasProv.addPoint(342, 353);
+        puntareanasProv.addPoint(344, 371);
+        puntareanasProv.addPoint(322, 362);
+        puntareanasProv.addPoint(309, 362);
+        puntareanasProv.addPoint(289, 343);
+        puntareanasProv.addPoint(292, 334);
+        puntareanasProv.addPoint(299, 332);
+        puntareanasProv.addPoint(303, 322);
+        puntareanasProv.addPoint(300, 284);
+        puntareanasProv.addPoint(283, 267);
+        puntareanasProv.addPoint(258, 250);
+        puntareanasProv.addPoint(234, 241);
+        puntareanasProv.addPoint(233, 235);
+        puntareanasProv.addPoint(201, 225);
+        puntareanasProv.addPoint(186, 223);
+        puntareanasProv.addPoint(171, 210);
+        puntareanasProv.addPoint(169, 204);
+        puntareanasProv.addPoint(174, 194);
+        puntareanasProv.addPoint(162, 177);
+        puntareanasProv.addPoint(159, 166);
+        puntareanasProv.addPoint(147, 165);
+        puntareanasProv.addPoint(121, 144);
+        puntareanasProv.addPoint(121, 168);
+        puntareanasProv.addPoint(133, 173);
+        puntareanasProv.addPoint(135, 189);
+        puntareanasProv.addPoint(131, 194);
+        puntareanasProv.addPoint(124, 195);
+        puntareanasProv.addPoint(122, 202);
+        puntareanasProv.addPoint(114, 210);
+        puntareanasProv.addPoint(112, 217);
+
+        /*
+
         puntareanasProv.addPoint(111,216);
         puntareanasProv.addPoint(101,199);
         puntareanasProv.addPoint(105,181);
@@ -170,7 +290,7 @@ public class LimitesProvincias {
         puntareanasProv.addPoint(164,176);
         puntareanasProv.addPoint(133,153);
         puntareanasProv.addPoint(145,138);
-
+*/
         //PUNTOS CARTAGO
 
         cartagoProv.addPoint(271,153);

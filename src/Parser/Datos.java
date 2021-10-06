@@ -1,9 +1,6 @@
 package Parser;
 
-import Clases.Canton;
-import Clases.Cliente;
-import Clases.Distrito;
-import Clases.Provincia;
+import Clases.*;
 
 import java.util.ArrayList;
 
@@ -13,20 +10,21 @@ public class Datos {
     private ArrayList<Provincia> provincias;
     private ArrayList<Canton> cantones;
     private ArrayList<Distrito> distritos;
+    private ArrayList<Prestamo> prestamos;
 
     public Datos() {
         clientes =  new ArrayList<>();
         provincias = new ArrayList<>();
         cantones = new ArrayList<>();
         distritos = new ArrayList<>();
+        prestamos = new ArrayList<>();
     }
 
     public ArrayList<Cliente> getClientes(){
         return clientes;
     }
 
-    public void setClientes(ArrayList<Cliente> clientes) {
-        this.clientes = clientes;
+    public void setClientes(ArrayList<Cliente> clientes) { this.clientes = clientes;
     }
 
     public ArrayList<Provincia> getProvincias() {
@@ -52,6 +50,10 @@ public class Datos {
     public void setDistritos(ArrayList<Distrito> distritos) {
         this.distritos = distritos;
     }
+
+    public ArrayList<Prestamo> getPrestamos() {return prestamos;}
+
+    public void setPrestamos(ArrayList<Prestamo> prestamos) {this.prestamos = prestamos;}
 }
 
 
