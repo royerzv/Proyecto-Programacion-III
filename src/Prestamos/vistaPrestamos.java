@@ -24,7 +24,8 @@ public class vistaPrestamos extends JFrame {
         super("Prestamos");
         setSize(600, 600);
         addComponents(getContentPane());
-        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //setVisible(true);
     }
 
     private void addComponents(Container contentPane){
@@ -51,13 +52,27 @@ public class vistaPrestamos extends JFrame {
     private JTable tablaLista(){
         listaPrestamos listPrestamos = new listaPrestamos();
 
-        JAXBParser parser = new JAXBParser();
-        parser.marshall(listPrestamos, "prestamos.xml");
+        /*JAXBParser parser = new JAXBParser("datosXML.xml");
+        parser.marshall(listPrestamos);*/
 
         JTable tabla = new JTable();
         tabla.setModel(new tableModel(listPrestamos.getListaPrestamos()));
         return tabla;
     }
+
+    /*
+        //ACTIONS PERFORMED BOTONES Y TEXT FIELD
+        private void txtFieldCedulaActionPerformed(ActionEvent evt) {
+            // TODO add your handling code here:
+        }
+
+        private void bntBuscarActionPerformed(ActionEvent evt) {
+            // TODO add your handling code here:
+        }
+
+        private void btnPrestamosActionPerformed(ActionEvent evt) {
+            // TODO add your handling code here:
+        }*/
 
     public void agregaTabla(JScrollPane sp){
         if(centro.getComponentCount() > 0){
@@ -66,12 +81,12 @@ public class vistaPrestamos extends JFrame {
         centro.add(sp);
         centro.validate();
     }
-
+/*
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new controladorPrestamos();
             }
         });
-    }
+    }*/
 }

@@ -1,3 +1,5 @@
+package Principal;
+
 import Clases.Cliente;
 import Clases.Prestamo;
 

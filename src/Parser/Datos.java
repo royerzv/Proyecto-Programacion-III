@@ -1,9 +1,14 @@
 package Parser;
 
 import Clases.*;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.util.ArrayList;
 
+@XmlRootElement(name="data")
+@XmlAccessorType(XmlAccessType.PROPERTY)
 public class Datos {
 
     private ArrayList<Cliente> clientes;

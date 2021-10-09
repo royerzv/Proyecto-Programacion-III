@@ -1,13 +1,18 @@
 package Clases;
 
+import jakarta.xml.bind.annotation.*;
+
+
 import java.util.List;
 
+@XmlRootElement
 public class Provincia {
 
     private String numero;
     private String nombre;
     List<Canton> cantones;
 
+    @XmlElement
     public String getNumero() {
         return numero;
     }
@@ -16,6 +21,7 @@ public class Provincia {
         this.numero = numero;
     }
 
+    @XmlAttribute
     public String getNombre() {
         return nombre;
     }

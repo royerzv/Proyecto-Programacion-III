@@ -9,9 +9,6 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement(name = "prestamos")
-@XmlAccessorType(XmlAccessType.PROPERTY)
-
 public class listaPrestamos {
     List<Prestamo> listaPrestamos;
 
@@ -27,7 +24,6 @@ public class listaPrestamos {
         this.listaPrestamos = listaPrestamos;
     }
 
-    @XmlElement(name = "prestamo")
     public List<Prestamo> getListaPrestamos(){
         return listaPrestamos;
     }

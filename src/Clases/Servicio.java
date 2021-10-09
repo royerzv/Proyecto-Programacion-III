@@ -116,7 +116,7 @@ public class Servicio {
     }
 
 
-/*
+
     public void store() {
         try {
             JAXBParser.instance().marshall(datos);
@@ -126,11 +126,11 @@ public class Servicio {
 
     public Servicio(){
         try {
-            datos=XmlPersister.instance().load();
+            datos = (Datos) JAXBParser.instance().unmarshall();
         }catch (Exception ex){
             datos =  new Datos();
         }
     }
 
-*/
+
 }

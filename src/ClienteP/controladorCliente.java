@@ -1,7 +1,10 @@
 package ClienteP;
 
 import Clases.*;
+import Principal.mainClass;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.security.Provider;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,6 +23,7 @@ public class controladorCliente {
     public controladorCliente(modeloCliente modeloCli, vistaCliente vistaCli){
         this.modeloCli = modeloCli;
         this.vistaCli = vistaCli;
+        //Servicio.instance();
 
         modeloCli.setCliente(new Cliente());
 
@@ -35,7 +39,37 @@ public class controladorCliente {
         modeloCli.setDistrito(new Distrito());
         modeloCli.setListaDistritos(new ArrayList<>());
 
+        vistaCli.addListenner(new ClaseAction());
     }
+
+    private class ClaseAction implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int valor = Integer.parseInt(e.getActionCommand());
+            switch(valor){
+                case 1:
+                    hide();
+                    break;
+                /*case 2:
+                    vistaCli.*/
+            }
+        }
+    }
+
+    /*
+        //ACTIONS PERFORMED BOTONES Y TEXT FIELD
+        private void txtFieldCedulaActionPerformed(ActionEvent evt) {
+            // TODO add your handling code here:
+        }
+
+        private void bntBuscarActionPerformed(ActionEvent evt) {
+            // TODO add your handling code here:
+        }
+
+        private void btnPrestamosActionPerformed(ActionEvent evt) {
+            // TODO add your handling code here:
+        }*/
 
     public void getCliente(String cedula){
         try {
@@ -79,6 +113,7 @@ public class controladorCliente {
 
     public void hide(){
         this.vistaCli.setVisible(false);
+        mainClass.PRESTAMOS.show();
     }
 
     //public void exit(){Servicio.instance().store();}
@@ -89,7 +124,7 @@ public class controladorCliente {
 /*
     public void clientesShow(){
         this.hide();
-        mainClass.CLIENTES.show();
+        Principal.mainClass.CLIENTES.show();
     }
 
     public void facturasShow(){

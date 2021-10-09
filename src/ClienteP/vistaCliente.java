@@ -20,9 +20,16 @@ public class vistaCliente extends JFrame {
     private LimitesProvincias provincias;
 
 
-    public vistaCliente(){
+    public vistaCliente() throws HeadlessException{
+        super("Clientes");
         provincias = new LimitesProvincias();
         addComponents();
+    }
+
+    public void addListenner(ActionListener al){
+        bntArchivo.addActionListener(al);
+        bntBuscar.addActionListener(al);
+        btnPrestamos.addActionListener(al);
     }
 
     public int seleccionProvincia() {
@@ -110,29 +117,35 @@ public class vistaCliente extends JFrame {
 
         //BOTONES
 
+
+
         btnPrestamos = new JButton();
         btnPrestamos.setText("Prestamos");
         btnPrestamos.setIcon(icons[0]);
         btnPrestamos.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnPrestamos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnPrestamos.addActionListener(new java.awt.event.ActionListener() {
+        /*btnPrestamos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 //btnPrestamosActionPerformed(evt);
             }
-        });
+        });*/
+
+        bntArchivo.setActionCommand("3");
+        bntBuscar.setActionCommand("2");
+        btnPrestamos.setActionCommand("1");
 
         // MAS ACTIONS LISTENER
-        txtFieldCedula.addActionListener(new java.awt.event.ActionListener() {
+       /* txtFieldCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 //txtFieldCedulaActionPerformed(evt);
             }
-        });
+        });*/
 
-        bntBuscar.addActionListener(new ActionListener() {
+        /*bntBuscar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 //bntBuscarActionPerformed(evt);
             }
-        });
+        });*/
 
         mapaProvincias.addMouseMotionListener(new MouseMotionAdapter() {
             private void mapaProvinciasMouseClicked(MouseEvent evt) {
@@ -182,20 +195,6 @@ public class vistaCliente extends JFrame {
             }
         });
 
-
-        /*
-        //ACTIONS PERFORMED BOTONES Y TEXT FIELD
-        private void txtFieldCedulaActionPerformed(ActionEvent evt) {
-            // TODO add your handling code here:
-        }
-
-        private void bntBuscarActionPerformed(ActionEvent evt) {
-            // TODO add your handling code here:
-        }
-
-        private void btnPrestamosActionPerformed(ActionEvent evt) {
-            // TODO add your handling code here:
-        }*/
 
 
         GroupLayout layout = new GroupLayout(getContentPane());
@@ -276,12 +275,12 @@ public class vistaCliente extends JFrame {
         }
     }
 
-    public static void main(String args[]) {
+   /* public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new vistaCliente();
             }
         });
-    }
+    }*/
 
 }
