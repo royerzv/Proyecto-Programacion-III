@@ -5,6 +5,8 @@ import Principal.mainClass;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 import java.security.Provider;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,15 +16,20 @@ public class controladorCliente {
 
     private modeloCliente modeloCli;
     private vistaCliente vistaCli;
+    private LimitesProvincias provincias;
+
 
     public controladorCliente() {
         vistaCli = new vistaCliente();
         modeloCli = new modeloCliente();
+        provincias = new LimitesProvincias();
     }
 
     public controladorCliente(modeloCliente modeloCli, vistaCliente vistaCli){
         this.modeloCli = modeloCli;
         this.vistaCli = vistaCli;
+        this.provincias = new LimitesProvincias();
+
         //Servicio.instance();
 
         modeloCli.setCliente(new Cliente());
@@ -40,6 +47,7 @@ public class controladorCliente {
         modeloCli.setListaDistritos(new ArrayList<>());
 
         vistaCli.addListenner(new ClaseAction());
+        vistaCli.addMouseMotionListener(new MouseAction());
     }
 
     private class ClaseAction implements ActionListener {
@@ -53,6 +61,33 @@ public class controladorCliente {
                     break;
                 /*case 2:
                     vistaCli.*/
+            }
+        }
+    }
+
+    private class MouseAction implements MouseMotionListener{
+
+        @Override
+        public void mouseDragged(MouseEvent e) {}
+
+        @Override
+        public void mouseMoved(MouseEvent e) {
+            if(provincias.getSanJoseProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(1);
+            } else if(provincias.getAlajuelaProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(2);
+            } else if(provincias.getCartagoProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(3);
+            } else if(provincias.getHerediaProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(4);
+            } else if(provincias.getGuanacasteProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(5);
+            } else if(provincias.getPuntareanasProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(6);
+            } else if(provincias.getLimonProv().contains(e.getX(), e.getY())) {
+                vistaCli.resaltarProvincia(7);
+            } else {
+                vistaCli.resaltarProvincia(0);
             }
         }
     }

@@ -4,10 +4,7 @@ import Clases.LimitesProvincias;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
+import java.awt.event.*;
 import java.io.IOException;
 
 public class vistaCliente extends JFrame {
@@ -30,6 +27,14 @@ public class vistaCliente extends JFrame {
         bntArchivo.addActionListener(al);
         bntBuscar.addActionListener(al);
         btnPrestamos.addActionListener(al);
+    }
+
+    public void addMouseMotionListener(MouseMotionListener ml){
+        mapaProvincias.addMouseMotionListener(ml);
+    }
+
+    public void resaltarProvincia(int n){
+        mapaProvincias.setIcon(mapasProv[n]);
     }
 
     public int seleccionProvincia() {
@@ -173,29 +178,6 @@ public class vistaCliente extends JFrame {
         });
 
         mapaProvincias.setText("mapaP");
-        mapaProvincias.addMouseMotionListener(new MouseMotionAdapter() {
-            public void mouseMoved(MouseEvent evt) {
-                int provIndex = 0;
-                if(provincias.getSanJoseProv().contains(evt.getX(), evt.getY())){
-                    provIndex = 1;
-                } else if(provincias.getAlajuelaProv().contains(evt.getX(), evt.getY())){
-                    provIndex = 2;
-                } else if(provincias.getCartagoProv().contains(evt.getX(), evt.getY())){
-                    provIndex = 3;
-                } else if(provincias.getHerediaProv().contains(evt.getX(), evt.getY())){
-                    provIndex = 4;
-                } else if(provincias.getGuanacasteProv().contains(evt.getX(), evt.getY())){
-                    provIndex = 5;
-                } else if(provincias.getPuntareanasProv().contains(evt.getX(), evt.getY())){
-                    provIndex = 6;
-                } else if(provincias.getLimonProv().contains(evt.getX(), evt.getY())) {
-                    provIndex = 7;
-                }
-                mapaProvincias.setIcon(mapasProv[provIndex]);
-            }
-        });
-
-
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
