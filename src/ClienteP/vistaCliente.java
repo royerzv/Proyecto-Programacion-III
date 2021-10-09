@@ -65,6 +65,8 @@ public class vistaCliente extends JFrame {
 
     private void addComponents(){
 
+        setTitle("Cliente");
+
         txtLabelCedula = new JLabel("Cedula");
         txtFieldCedula = new JTextField();
         bntBuscar = new JButton(); //AGREGAR ICONOS
