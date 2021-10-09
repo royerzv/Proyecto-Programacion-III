@@ -20,6 +20,12 @@ public class vistaCliente extends JFrame {
     private LimitesProvincias provincias;
 
 
+    private String getNombre() {return txtFieldNombre.getText();}
+    private String getCedula() {return txtFieldCedula.getText();}
+    private String getCanton() {return (String) cantonComboBox.getSelectedItem();}
+    private String getDistrito() {return (String) distritoComboBox.getSelectedItem();}
+    private String getProvincia() {return (String) provinciaTxtField.getText();}
+
     public vistaCliente(){
         provincias = new LimitesProvincias();
         addComponents();

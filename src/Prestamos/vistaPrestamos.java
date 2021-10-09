@@ -51,8 +51,8 @@ public class vistaPrestamos extends JFrame {
     private JTable tablaLista(){
         listaPrestamos listPrestamos = new listaPrestamos();
 
-        JAXBParser parser = new JAXBParser();
-        parser.marshall(listPrestamos, "prestamos.xml");
+        //JAXBParser parser = new JAXBParser();
+        //parser.marshall(listPrestamos, "prestamos.xml");
 
         JTable tabla = new JTable();
         tabla.setModel(new tableModel(listPrestamos.getListaPrestamos()));
