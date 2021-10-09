@@ -3,8 +3,7 @@ package ClienteP;
 import Clases.*;
 import Principal.mainClass;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.security.Provider;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,15 +13,20 @@ public class controladorCliente {
 
     private modeloCliente modeloCli;
     private vistaCliente vistaCli;
+    private LimitesProvincias provincias;
+
 
     public controladorCliente() {
         vistaCli = new vistaCliente();
         modeloCli = new modeloCliente();
+        provincias = new LimitesProvincias();
     }
 
     public controladorCliente(modeloCliente modeloCli, vistaCliente vistaCli){
         this.modeloCli = modeloCli;
         this.vistaCli = vistaCli;
+        this.provincias = new LimitesProvincias();
+
         //Servicio.instance();
 
         modeloCli.setCliente(new Cliente());
@@ -40,6 +44,7 @@ public class controladorCliente {
         modeloCli.setListaDistritos(new ArrayList<>());
 
         vistaCli.addListenner(new ClaseAction());
+        vistaCli.addMouseMotionListener(new MouseActionMove());
     }
 
     private class ClaseAction implements ActionListener {
@@ -55,6 +60,71 @@ public class controladorCliente {
                     vistaCli.*/
             }
         }
+    }
+
+    private class MouseActionMove implements MouseMotionListener{
+
+        @Override
+        public void mouseDragged(MouseEvent e) {}
+
+        @Override
+        public void mouseMoved(MouseEvent e) {
+            if(provincias.getSanJoseProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(1);
+            } else if(provincias.getAlajuelaProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(2);
+            } else if(provincias.getCartagoProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(3);
+            } else if(provincias.getHerediaProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(4);
+            } else if(provincias.getGuanacasteProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(5);
+            } else if(provincias.getPuntareanasProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(6);
+            } else if(provincias.getLimonProv().contains(e.getX(), e.getY())) {
+                vistaCli.resaltarProvincia(7);
+            } else {
+                vistaCli.resaltarProvincia(0);
+            }
+        }
+    }
+
+    private class MouseAction implements MouseListener{
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (e.getClickCount() == 1) {
+                if (provincias.getSanJoseProv().contains(e.getX(), e.getY())) {
+                    vistaCli.seleccionarProvincia("1");
+                } else if (provincias.getAlajuelaProv().contains(e.getX(), e.getY())) {
+                    vistaCli.seleccionarProvincia("2");
+                } else if (provincias.getCartagoProv().contains(e.getX(), e.getY())) {
+                    vistaCli.seleccionarProvincia("3");
+                } else if (provincias.getHerediaProv().contains(e.getX(), e.getY())) {
+                    vistaCli.seleccionarProvincia("4");
+                } else if (provincias.getGuanacasteProv().contains(e.getX(), e.getY())) {
+                    vistaCli.seleccionarProvincia("5");
+                } else if (provincias.getPuntareanasProv().contains(e.getX(), e.getY())) {
+                    vistaCli.seleccionarProvincia("6");
+                } else if (provincias.getLimonProv().contains(e.getX(), e.getY())) {
+                    vistaCli.seleccionarProvincia("7");
+                }else{
+                    vistaCli.seleccionarProvincia("0");
+                }
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {}
+
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {}
+
+        @Override
+        public void mouseExited(MouseEvent e) {}
     }
 
     /*
