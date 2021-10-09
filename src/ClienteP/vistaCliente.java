@@ -33,8 +33,17 @@ public class vistaCliente extends JFrame {
         mapaProvincias.addMouseMotionListener(ml);
     }
 
+    public void addMouseClickListener(MouseListener ml){
+        mapaProvincias.addMouseListener(ml);
+    }
+
     public void resaltarProvincia(int n){
         mapaProvincias.setIcon(mapasProv[n]);
+    }
+
+    public void seleccionarProvincia(String s){
+        mapaProvincias.setIcon(mapasProv[Integer.parseInt(s)]);
+        //THERE'S MORE SHIT TO DO IN HERE I THINK
     }
 
     public int seleccionProvincia() {
@@ -152,6 +161,7 @@ public class vistaCliente extends JFrame {
             }
         });*/
 
+        /*
         mapaProvincias.addMouseMotionListener(new MouseMotionAdapter() {
             private void mapaProvinciasMouseClicked(MouseEvent evt) {
                 String provIndex = "0";
@@ -175,7 +185,7 @@ public class vistaCliente extends JFrame {
 
                 }
             }
-        });
+        });*/
 
         mapaProvincias.setText("mapaP");
 
