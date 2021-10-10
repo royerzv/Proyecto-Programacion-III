@@ -4,10 +4,7 @@ import Clases.LimitesProvincias;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
+import java.awt.event.*;
 import java.io.IOException;
 
 public class vistaCliente extends JFrame {
@@ -27,8 +24,33 @@ public class vistaCliente extends JFrame {
     private String getProvincia() {return (String) provinciaTxtField.getText();}
 
     public vistaCliente(){
+    public vistaCliente() throws HeadlessException{
+        super("Clientes");
         provincias = new LimitesProvincias();
         addComponents();
+    }
+
+    public void addListenner(ActionListener al){
+        bntArchivo.addActionListener(al);
+        bntBuscar.addActionListener(al);
+        btnPrestamos.addActionListener(al);
+    }
+
+    public void addMouseMotionListener(MouseMotionListener ml){
+        mapaProvincias.addMouseMotionListener(ml);
+    }
+
+    public void addMouseClickListener(MouseListener ml){
+        mapaProvincias.addMouseListener(ml);
+    }
+
+    public void resaltarProvincia(int n){
+        mapaProvincias.setIcon(mapasProv[n]);
+    }
+
+    public void seleccionarProvincia(String s){
+        mapaProvincias.setIcon(mapasProv[Integer.parseInt(s)]);
+        //THERE'S MORE SHIT TO DO IN HERE I THINK
     }
 
     public int seleccionProvincia() {
@@ -121,25 +143,30 @@ public class vistaCliente extends JFrame {
         btnPrestamos.setIcon(icons[0]);
         btnPrestamos.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnPrestamos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnPrestamos.addActionListener(new java.awt.event.ActionListener() {
+        /*btnPrestamos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 //btnPrestamosActionPerformed(evt);
             }
-        });
+        });*/
+
+        bntArchivo.setActionCommand("3");
+        bntBuscar.setActionCommand("2");
+        btnPrestamos.setActionCommand("1");
 
         // MAS ACTIONS LISTENER
-        txtFieldCedula.addActionListener(new java.awt.event.ActionListener() {
+       /* txtFieldCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 //txtFieldCedulaActionPerformed(evt);
             }
-        });
+        });*/
 
-        bntBuscar.addActionListener(new ActionListener() {
+        /*bntBuscar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 //bntBuscarActionPerformed(evt);
             }
-        });
+        });*/
 
+        /*
         mapaProvincias.addMouseMotionListener(new MouseMotionAdapter() {
             private void mapaProvinciasMouseClicked(MouseEvent evt) {
                 String provIndex = "0";
@@ -163,46 +190,9 @@ public class vistaCliente extends JFrame {
 
                 }
             }
-        });
+        });*/
 
         mapaProvincias.setText("mapaP");
-        mapaProvincias.addMouseMotionListener(new MouseMotionAdapter() {
-            public void mouseMoved(MouseEvent evt) {
-                int provIndex = 0;
-                if(provincias.getSanJoseProv().contains(evt.getX(), evt.getY())){
-                    provIndex = 1;
-                } else if(provincias.getAlajuelaProv().contains(evt.getX(), evt.getY())){
-                    provIndex = 2;
-                } else if(provincias.getCartagoProv().contains(evt.getX(), evt.getY())){
-                    provIndex = 3;
-                } else if(provincias.getHerediaProv().contains(evt.getX(), evt.getY())){
-                    provIndex = 4;
-                } else if(provincias.getGuanacasteProv().contains(evt.getX(), evt.getY())){
-                    provIndex = 5;
-                } else if(provincias.getPuntareanasProv().contains(evt.getX(), evt.getY())){
-                    provIndex = 6;
-                } else if(provincias.getLimonProv().contains(evt.getX(), evt.getY())) {
-                    provIndex = 7;
-                }
-                mapaProvincias.setIcon(mapasProv[provIndex]);
-            }
-        });
-
-
-        /*
-        //ACTIONS PERFORMED BOTONES Y TEXT FIELD
-        private void txtFieldCedulaActionPerformed(ActionEvent evt) {
-            // TODO add your handling code here:
-        }
-
-        private void bntBuscarActionPerformed(ActionEvent evt) {
-            // TODO add your handling code here:
-        }
-
-        private void btnPrestamosActionPerformed(ActionEvent evt) {
-            // TODO add your handling code here:
-        }*/
-
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -282,12 +272,12 @@ public class vistaCliente extends JFrame {
         }
     }
 
-    public static void main(String args[]) {
+   /* public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new vistaCliente();
             }
         });
-    }
+    }*/
 
 }

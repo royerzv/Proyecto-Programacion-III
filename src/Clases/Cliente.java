@@ -1,5 +1,7 @@
 package Clases;
 
+import jakarta.xml.bind.annotation.XmlID;
+
 public class Cliente {
 
     private String cedulaCli;

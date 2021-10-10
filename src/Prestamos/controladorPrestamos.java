@@ -3,10 +3,13 @@ package Prestamos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import Clases.*;
 import ClienteP.modeloCliente;
 import ClienteP.vistaCliente;
+import Principal.mainClass;
+import Clases.Servicio;
 
 public class controladorPrestamos {
     private modeloPrestamos modeloPrestamos;
@@ -22,7 +25,7 @@ public class controladorPrestamos {
         this.modeloPrestamos = new modeloPrestamos();
         this.vistaPrestamos = new vistaPrestamos();
 
-        vistaPrestamos.addListenner(new ClaseAction());
+        this.vistaPrestamos.addListenner(new ClaseAction());
 
         //modeloPrestamos.setCliente(new Cliente());
 
@@ -38,6 +41,8 @@ public class controladorPrestamos {
         //modeloCli.setDistrito(new Distrito());
         //modeloCli.setListaDistritos(new ArrayList<>());
 
+        //Servicio.instance();
+
     }
 
     private class ClaseAction implements ActionListener{
@@ -47,12 +52,24 @@ public class controladorPrestamos {
             int valor = Integer.parseInt(e.getActionCommand());
             switch(valor){
                 case 1:
-                    vistaPrestamos.setVisible(false);
-                    new vistaCliente();
+                    hide();
                     break;
             }
         }
     }
+
+    /*public void PrestamoGet(String prestamoIdentificador){
+        try{
+            Prestamo prestamo = Servicio.instance().prestamoGet(prestamoIdentificador);
+            modeloPrestamos.setPrestamo(prestamo);
+            modeloPrestamos.setListaPrestamos(Arrays.asList(prestamo));
+            //SE TIENE QUE AGREGAR UN REEMPLAZO DEL COMMIT METHOD
+        }catch (Exception ex){
+            modeloPrestamos.setPrestamo(new Prestamo());
+            modeloPrestamos.setListaPrestamos(new ArrayList<>());
+            //SE TIENE QUE AGREGAR UN REEMPLAZO DEL COMMIT METHOD
+        }
+    }*/
 
     public void show(){
         this.vistaPrestamos.setVisible(true);
@@ -60,6 +77,6 @@ public class controladorPrestamos {
 
     public void hide(){
         this.vistaPrestamos.setVisible(false);
-
+        mainClass.CLIENTES.show();
     }
 }
