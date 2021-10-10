@@ -2,17 +2,18 @@ package Clases;
 
 import jakarta.xml.bind.annotation.*;
 
-
 import java.util.List;
 
-@XmlRootElement
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Provincia {
 
+    @XmlID
     private String numero;
     private String nombre;
+    @XmlIDREF
     List<Canton> cantones;
 
-    @XmlElement
     public String getNumero() {
         return numero;
     }
@@ -21,7 +22,6 @@ public class Provincia {
         this.numero = numero;
     }
 
-    @XmlAttribute
     public String getNombre() {
         return nombre;
     }
@@ -36,5 +36,10 @@ public class Provincia {
 
     public void setCantones(List<Canton> cantones) {
         this.cantones = cantones;
+    }
+
+    @Override
+    public String toString() {
+        return nombre ;
     }
 }

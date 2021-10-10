@@ -8,7 +8,8 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 
 @XmlRootElement(name="data")
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.FIELD)
+
 public class Datos {
 
     private ArrayList<Cliente> clientes;
@@ -24,6 +25,7 @@ public class Datos {
         distritos = new ArrayList<>();
         prestamos = new ArrayList<>();
     }
+
 
     public ArrayList<Cliente> getClientes(){
         return clientes;

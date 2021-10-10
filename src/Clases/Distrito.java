@@ -1,7 +1,14 @@
 package Clases;
 
+
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlID;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Distrito {
 
+    @XmlID
     private String numero;
     private String nombre;
 
@@ -29,5 +36,10 @@ public class Distrito {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
 }

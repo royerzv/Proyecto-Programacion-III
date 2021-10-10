@@ -1,6 +1,7 @@
 package ClienteP;
 
 import Clases.Canton;
+import Clases.Distrito;
 import Clases.LimitesProvincias;
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -30,12 +31,16 @@ public class vistaCliente extends JFrame {
     }
 
     public void setCantones(List<Canton> alc){
-        for(int i = 0; i < alc.size(); i++){
-            cantonComboBox.addItem(alc.get(i).getNombre());
-        }
+       /*for(int i = 0; i < alc.size(); i++){
+           System.out.println(alc.get(i).getDistritos().get(0));
+        }*/
 
-        //cantonComboBox.setModel(new DefaultComboBoxModel(alc.toArray()));
+        cantonComboBox.setModel(new DefaultComboBoxModel(alc.toArray()));
         //cantonComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+    }
+
+    public void setDistritos(List<Distrito> alc){
+        distritoComboBox.setModel(new DefaultComboBoxModel(alc.toArray()));
     }
 
 

@@ -4,7 +4,6 @@ import Clases.*;
 import Principal.mainClass;
 
 import java.awt.event.*;
-import java.security.Provider;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -102,7 +101,7 @@ public class controladorCliente {
                     vistaCli.seleccionarProvincia("1");
                     numProv = "1";
                     //vistaCli.setProvincia(provincia.getNombre());
-                    vistaCli.setProvincia("San Jose");
+                    //vistaCli.setProvincia("San Jose");
                 } else if (provincias.getAlajuelaProv().contains(e.getX(), e.getY())) {
                     vistaCli.seleccionarProvincia("2");
                     numProv = "2";
@@ -134,7 +133,6 @@ public class controladorCliente {
                 }
 
                 vistaCli.removeMouseMotionListener(mam);
-
 
                 getProvincia(numProv);
                 getCanton(numProv);
@@ -225,8 +223,9 @@ public class controladorCliente {
             modeloCli.setListaCantones(cantones);
             List<Distrito> distritos = provincia.getCantones().get(0).getDistritos();
             modeloCli.setListaDistritos(distritos);
-            //vistaCli.setProvincia(provincia.getNombre());
+            vistaCli.setProvincia(provincia.getNombre());
             vistaCli.setCantones(cantones);
+            vistaCli.setDistritos(distritos);
 
         } catch (Exception exception) {
             modeloCli.setProvincia(new Provincia());
@@ -235,26 +234,27 @@ public class controladorCliente {
         }
     }
 
-    public void getCanton(String provincia){
-        try {
+    public void getCanton(String provincia) {
+        try{
             if (provincia != "0"){
                 modeloCli.setListaCantones(Servicio.instance().provinciaGet(provincia).getCantones());
             }else {
                 modeloCli.setListaCantones(new ArrayList<>());
             }
         } catch (Exception exception) {
+            modeloCli.setListaCantones(new ArrayList<>());
         }
     }
 
     public void getDistrito(String provincia){
-        try {
+        try{
             if (provincia != "0"){
                 modeloCli.setListaDistritos(Servicio.instance().provinciaGet(provincia).getCantones().get(0).getDistritos());
-            }else{
+            }else {
                 modeloCli.setListaDistritos(new ArrayList<>());
             }
         } catch (Exception exception) {
-
+            modeloCli.setListaDistritos(new ArrayList<>());
         }
     }
 
@@ -267,21 +267,6 @@ public class controladorCliente {
         mainClass.PRESTAMOS.show();
     }
 
-    //public void exit(){Servicio.instance().store();}
-
-    // Controller methods that respond to View events
-    // probably invoke methods from Service,
-    // and set data to Model, which in turn causes the View to update
-/*
-    public void clientesShow(){
-        this.hide();
-        Principal.mainClass.CLIENTES.show();
-    }
-
-    public void facturasShow(){
-        this.hide();
-        Application.FACTURAS.show();
-    }*/
 
 }
 

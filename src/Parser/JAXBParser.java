@@ -6,10 +6,8 @@ import jakarta.xml.bind.Unmarshaller;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.File;
 
 public class JAXBParser {
-
 
     private String path;
     private static JAXBParser theInstance;

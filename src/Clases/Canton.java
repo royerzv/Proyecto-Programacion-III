@@ -1,12 +1,21 @@
 package Clases;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlID;
+import jakarta.xml.bind.annotation.XmlIDREF;
+
 import java.util.ArrayList;
 import java.util.List;
 
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Canton {
 
+    @XmlID
     private String numero;
     private String nombre;
+    @XmlIDREF
     List<Distrito> distritos;
 
     public Canton() {
@@ -43,5 +52,10 @@ public class Canton {
 
     public void setDistritos(List<Distrito> distritos) {
         this.distritos = distritos;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
 }

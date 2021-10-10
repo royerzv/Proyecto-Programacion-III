@@ -1,9 +1,17 @@
 package Clases;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlIDREF;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Direccion {
 
+    @XmlIDREF
     Provincia provincia;
+    @XmlIDREF
     Canton canton;
+    @XmlIDREF
     Distrito distrito;
 
     public Direccion() {

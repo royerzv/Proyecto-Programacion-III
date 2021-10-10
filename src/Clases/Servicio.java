@@ -19,47 +19,47 @@ public class Servicio {
     }
 
     //Service Datos
-    private Datos datos;
+    private Datos data;
 
     //METODOS GET-AÑADIR Y BUSQUEDA Cliente
 
     public Cliente clienteGet(String cedula) throws Exception{
-        Cliente result=datos.getClientes().stream().filter(c->c.getCedulaCli().equals(cedula)).findFirst().orElse(null);
+        Cliente result= data.getClientes().stream().filter(c->c.getCedulaCli().equals(cedula)).findFirst().orElse(null);
         if (result!=null) return result;
         else throw new Exception("Cliente no existente!!");
     }
 
     public List<Cliente> clienteBusqueda(String cedula){
-        List<Cliente> result = datos.getClientes().stream().filter(c->c.getCedulaCli().startsWith(cedula)).collect(Collectors.toList());
+        List<Cliente> result = data.getClientes().stream().filter(c->c.getCedulaCli().startsWith(cedula)).collect(Collectors.toList());
         return result;
     }
 
     public List<Cliente> clienteTodo(){
-        return datos.getClientes();
+        return data.getClientes();
     }
 
     public void clienteAñadir(Cliente cliente) throws Exception{
-        Cliente old = datos.getClientes().stream().filter(c->c.getCedulaCli().equals(cliente.getCedulaCli())).findFirst().orElse(null);
-        if (old==null) datos.getClientes().add(cliente);
+        Cliente old = data.getClientes().stream().filter(c->c.getCedulaCli().equals(cliente.getCedulaCli())).findFirst().orElse(null);
+        if (old==null) data.getClientes().add(cliente);
         else throw new Exception("Cliente ya existente!!");
 
     }
 
     //PRESTAMOS GET - AÑADIR
     public Prestamo prestamoGet(String prestamoIdentificador) throws Exception{
-        Prestamo result=datos.getPrestamos().stream().filter(f->f.getIdentificardorPrestamo().equals(prestamoIdentificador)).findFirst().orElse(null);
+        Prestamo result= data.getPrestamos().stream().filter(f->f.getIdentificardorPrestamo().equals(prestamoIdentificador)).findFirst().orElse(null);
         if (result!=null) return result;
         else throw new Exception("El prestamo no existe");
     }
 
     public List<Prestamo> prestamoBusqueda(String prestamoIdentificador){
-        List<Prestamo> result=datos.getPrestamos().stream().filter(f->f.getIdentificardorPrestamo().startsWith(prestamoIdentificador)).collect(Collectors.toList());
+        List<Prestamo> result= data.getPrestamos().stream().filter(f->f.getIdentificardorPrestamo().startsWith(prestamoIdentificador)).collect(Collectors.toList());
         return result;
     }
 
     public void prestamoAñadir(Prestamo prestamo) throws Exception{
-        Prestamo old = datos.getPrestamos().stream().filter(f->f.getIdentificardorPrestamo().equals(prestamo.getIdentificardorPrestamo())).findFirst().orElse(null);
-        if (old==null) datos.getPrestamos().add(prestamo);
+        Prestamo old = data.getPrestamos().stream().filter(f->f.getIdentificardorPrestamo().equals(prestamo.getIdentificardorPrestamo())).findFirst().orElse(null);
+        if (old==null) data.getPrestamos().add(prestamo);
         else throw new Exception("Prestamo ya existente");
 
     }
@@ -67,66 +67,66 @@ public class Servicio {
     //METODOS GET Y BUSQUEDA Provincia
 
     public Provincia provinciaGet(String numero) throws Exception{
-        Provincia result= datos.getProvincias().stream().filter(c->c.getNumero().equals(numero)).findFirst().orElse(null);
+        Provincia result = data.getProvincias().stream().filter(c->c.getNumero().equals(numero)).findFirst().orElse(null);
         if (result!=null) return result;
         else throw new Exception("Provincia no existente!!");
     }
 
     public List<Provincia> ProvinciaBusqueda(String numero){
-        List<Provincia> result = datos.getProvincias().stream().filter(c->c.getNumero().startsWith(numero)).collect(Collectors.toList());
+        List<Provincia> result = data.getProvincias().stream().filter(c->c.getNumero().startsWith(numero)).collect(Collectors.toList());
         return result;
     }
 
     public List<Provincia> provinciaTodo(){
-        return datos.getProvincias();
+        return data.getProvincias();
     }
 
     //METODOS GET Y BUSQUEDA CANTON
 
     public Canton cantonGet(String numero) throws Exception{
-        Canton result= datos.getCantones().stream().filter(c->c.getNumero().equals(numero)).findFirst().orElse(null);
+        Canton result= data.getCantones().stream().filter(c->c.getNumero().equals(numero)).findFirst().orElse(null);
         if (result!=null) return result;
         else throw new Exception("Canton no existente!!");
     }
 
     public List<Canton> cantonBusqueda(String numero){
-        List<Canton> result = datos.getCantones().stream().filter(c->c.getNumero().startsWith(numero)).collect(Collectors.toList());
+        List<Canton> result = data.getCantones().stream().filter(c->c.getNumero().startsWith(numero)).collect(Collectors.toList());
         return result;
     }
 
     public List<Canton> cantonTodo(){
-        return datos.getCantones();
+        return data.getCantones();
     }
 
     //METODOS GET Y BUSQUEDA Distrito
 
     public Distrito distritoGet(String numero) throws Exception{
-        Distrito result= datos.getDistritos().stream().filter(c->c.getNumero().equals(numero)).findFirst().orElse(null);
+        Distrito result= data.getDistritos().stream().filter(c->c.getNumero().equals(numero)).findFirst().orElse(null);
         if (result!=null) return result;
         else throw new Exception("Canton no existente!!");
     }
 
     public List<Distrito> distritoBusqueda(String numero){
-        List<Distrito> result = datos.getDistritos().stream().filter(c->c.getNumero().startsWith(numero)).collect(Collectors.toList());
+        List<Distrito> result = data.getDistritos().stream().filter(c->c.getNumero().startsWith(numero)).collect(Collectors.toList());
         return result;
     }
 
     public List<Distrito> distritosTodo(){
-        return datos.getDistritos();
+        return data.getDistritos();
     }
 
     public void store() {
         try {
-            JAXBParser.instance().marshall(datos);
+            JAXBParser.instance().marshall(data);
         } catch (Exception ex) {
         }
     }
 
     public Servicio(){
         try {
-            datos = (Datos) JAXBParser.instance().unmarshall();
+            data = (Datos) JAXBParser.instance().unmarshall();
         }catch (Exception ex){
-            datos =  new Datos();
+            data =  new Datos();
         }
     }
 }
