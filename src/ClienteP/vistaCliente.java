@@ -23,7 +23,7 @@ public class vistaCliente extends JFrame {
     private String getDistrito() {return (String) distritoComboBox.getSelectedItem();}
     private String getProvincia() {return (String) provinciaTxtField.getText();}
 
-    public vistaCliente(){
+
     public vistaCliente() throws HeadlessException{
         super("Clientes");
         provincias = new LimitesProvincias();
