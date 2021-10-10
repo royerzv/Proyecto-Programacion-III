@@ -1,9 +1,14 @@
 package Clases;
 
+
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlID;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Cliente {
 
+    @XmlID
     private String cedulaCli;
     private String nombre;
     Direccion direccion;
