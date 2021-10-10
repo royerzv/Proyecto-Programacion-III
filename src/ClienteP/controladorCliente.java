@@ -136,8 +136,7 @@ public class controladorCliente {
                 }
                 getProvincia(numProv);
                 getCanton(numProv);
-                //getDistritoCamton("1");
-
+                getDistrito("1");
             }
         }
 
@@ -227,7 +226,18 @@ public class controladorCliente {
                 modeloCli.setListaCantones(new ArrayList<>());
             }
         } catch (Exception exception) {
-            exception.printStackTrace();
+        }
+    }
+
+    public void getDistrito(String provincia){
+        try {
+            if (provincia != "0"){
+                modeloCli.setListaDistritos(Servicio.instance().provinciaGet(provincia).getCantones().get(0).getDistritos());
+            }else{
+                modeloCli.setListaDistritos(new ArrayList<>());
+            }
+        } catch (Exception exception) {
+
         }
     }
 

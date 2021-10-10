@@ -125,11 +125,11 @@ public class vistaCliente extends JFrame {
 
         //DISTRITO COMBOBOX
         distritoComboBox = new JComboBox<>();
-        distritoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+        distritoComboBox.setModel(new DefaultComboBoxModel<>());
 
         //CANTON COMBOBOX
         cantonComboBox = new JComboBox<>();
-        cantonComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+        cantonComboBox.setModel(new DefaultComboBoxModel<>(new String[] {  }));
 
         //Provincia Campo Texto
         provinciaTxtField = new JTextField();
