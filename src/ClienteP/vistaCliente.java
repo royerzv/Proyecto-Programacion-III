@@ -1,11 +1,13 @@
 package ClienteP;
 
+import Clases.Canton;
 import Clases.LimitesProvincias;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
+import java.util.List;
 
 public class vistaCliente extends JFrame {
 
@@ -23,6 +25,19 @@ public class vistaCliente extends JFrame {
     private String getDistrito() {return (String) distritoComboBox.getSelectedItem();}
     private String getProvincia() {return (String) provinciaTxtField.getText();}
 
+    public void setProvincia(String provincia){
+        provinciaTxtField.setText(provincia);
+    }
+
+    public void setCantones(List<Canton> alc){
+        for(int i = 0; i < alc.size(); i++){
+            cantonComboBox.addItem(alc.get(i).getNombre());
+        }
+
+        //cantonComboBox.setModel(new DefaultComboBoxModel(alc.toArray()));
+        //cantonComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+    }
+
 
     public vistaCliente() throws HeadlessException{
         super("Clientes");
@@ -38,6 +53,10 @@ public class vistaCliente extends JFrame {
 
     public void addMouseMotionListener(MouseMotionListener ml){
         mapaProvincias.addMouseMotionListener(ml);
+    }
+
+    public void removeMouseMotionListener(MouseMotionListener ml){
+        mapaProvincias.removeMouseMotionListener(ml);
     }
 
     public void addMouseClickListener(MouseListener ml){
@@ -103,7 +122,7 @@ public class vistaCliente extends JFrame {
         provinciaTxtLabel = new JLabel("Provincia");
         cantonTxtLabel = new JLabel("Canton");
         distritoTxtLabel = new JLabel("Distrito");
-        distritoComboBox = new JComboBox<>();
+        //distritoComboBox = new JComboBox<>();
         bntArchivo = new JButton(); //AGREGAR ICONOS
 
 
@@ -125,11 +144,11 @@ public class vistaCliente extends JFrame {
 
         //DISTRITO COMBOBOX
         distritoComboBox = new JComboBox<>();
-        distritoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+        //distritoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
 
         //CANTON COMBOBOX
         cantonComboBox = new JComboBox<>();
-        cantonComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+        //cantonComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
 
         //Provincia Campo Texto
         provinciaTxtField = new JTextField();
@@ -203,7 +222,7 @@ public class vistaCliente extends JFrame {
         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED).addComponent(bntBuscar, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
         .addGroup(layout.createSequentialGroup().addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
         .addGroup(layout.createSequentialGroup().addComponent(provinciaTxtLabel).addGap(86, 86, 86).addComponent(cantonTxtLabel).addGap(97, 97, 97))
-        .addGroup(layout.createSequentialGroup().addComponent(provinciaTxtField).addGap(18, 18, 18).addComponent(cantonComboBox, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
+        .addGroup(layout.createSequentialGroup().addComponent(provinciaTxtField).addGap(18, 18, 18).addComponent(cantonComboBox, GroupLayout.PREFERRED_SIZE, 218, GroupLayout.PREFERRED_SIZE)
         .addGap(18, 18, 18))).addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(distritoTxtLabel).addGroup(layout.createSequentialGroup()
         .addComponent(distritoComboBox, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE).addGap(28, 28, 28)
         .addComponent(bntArchivo, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)))).addComponent(mapaProvincias, GroupLayout.PREFERRED_SIZE, 447, GroupLayout.PREFERRED_SIZE))

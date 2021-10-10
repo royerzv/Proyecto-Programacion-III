@@ -115,8 +115,6 @@ public class Servicio {
         return datos.getDistritos();
     }
 
-
-
     public void store() {
         try {
             JAXBParser.instance().marshall(datos);
@@ -131,6 +129,4 @@ public class Servicio {
             datos =  new Datos();
         }
     }
-
-
 }

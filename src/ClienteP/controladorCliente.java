@@ -72,24 +72,22 @@ public class controladorCliente {
 
         @Override
         public void mouseMoved(MouseEvent e) {
-            if (mam != null){
-                if(provincias.getSanJoseProv().contains(e.getX(), e.getY())){
-                    vistaCli.resaltarProvincia(1);
-                } else if(provincias.getAlajuelaProv().contains(e.getX(), e.getY())){
-                    vistaCli.resaltarProvincia(2);
-                } else if(provincias.getCartagoProv().contains(e.getX(), e.getY())){
-                    vistaCli.resaltarProvincia(3);
-                } else if(provincias.getHerediaProv().contains(e.getX(), e.getY())){
-                    vistaCli.resaltarProvincia(4);
-                } else if(provincias.getGuanacasteProv().contains(e.getX(), e.getY())){
-                    vistaCli.resaltarProvincia(5);
-                } else if(provincias.getPuntareanasProv().contains(e.getX(), e.getY())){
-                    vistaCli.resaltarProvincia(6);
-                } else if(provincias.getLimonProv().contains(e.getX(), e.getY())) {
-                    vistaCli.resaltarProvincia(7);
-                } else {
-                    vistaCli.resaltarProvincia(0);
-                }
+            if(provincias.getSanJoseProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(1);
+            } else if(provincias.getAlajuelaProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(2);
+            } else if(provincias.getCartagoProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(3);
+            } else if(provincias.getHerediaProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(4);
+            } else if(provincias.getGuanacasteProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(5);
+            } else if(provincias.getPuntareanasProv().contains(e.getX(), e.getY())){
+                vistaCli.resaltarProvincia(6);
+            } else if(provincias.getLimonProv().contains(e.getX(), e.getY())) {
+                vistaCli.resaltarProvincia(7);
+            } else {
+                vistaCli.resaltarProvincia(0);
             }
         }
     }
@@ -103,40 +101,56 @@ public class controladorCliente {
                 if (provincias.getSanJoseProv().contains(e.getX(), e.getY())) {
                     vistaCli.seleccionarProvincia("1");
                     numProv = "1";
+                    //vistaCli.setProvincia(provincia.getNombre());
+                    vistaCli.setProvincia("San Jose");
                 } else if (provincias.getAlajuelaProv().contains(e.getX(), e.getY())) {
                     vistaCli.seleccionarProvincia("2");
                     numProv = "2";
+                   // vistaCli.setProvincia("Alajuela");
                 } else if (provincias.getCartagoProv().contains(e.getX(), e.getY())) {
                     vistaCli.seleccionarProvincia("3");
                     numProv = "3";
+                    //vistaCli.setProvincia("Cartago");
                 } else if (provincias.getHerediaProv().contains(e.getX(), e.getY())) {
                     vistaCli.seleccionarProvincia("4");
                     numProv = "4";
+                    //vistaCli.setProvincia("Heredia");
                 } else if (provincias.getGuanacasteProv().contains(e.getX(), e.getY())) {
                     vistaCli.seleccionarProvincia("5");
                     numProv = "5";
+                    //vistaCli.setProvincia("Guanacaste");
                 } else if (provincias.getPuntareanasProv().contains(e.getX(), e.getY())) {
                     vistaCli.seleccionarProvincia("6");
                     numProv = "6";
+                    //vistaCli.setProvincia("Puntarenas");
                 } else if (provincias.getLimonProv().contains(e.getX(), e.getY())) {
                     vistaCli.seleccionarProvincia("7");
                     numProv = "7";
+                   // vistaCli.setProvincia("Limon");
                 }else{
                     vistaCli.seleccionarProvincia("0");
                     numProv = "0";
+                    vistaCli.setProvincia("");
                 }
-                mam = null;
-                if (e.getClickCount() == 2 || (!provincias.getSanJoseProv().contains(e.getX(), e.getY()) &&
-                        !provincias.getAlajuelaProv().contains(e.getX(), e.getY()) && !provincias.getCartagoProv().
-                        contains(e.getX(), e.getY()) && !provincias.getHerediaProv().contains(e.getX(), e.getY()) &&
-                        !provincias.getGuanacasteProv().contains(e.getX(), e.getY()) && !provincias.getPuntareanasProv().
-                        contains(e.getX(), e.getY()) && !provincias.getLimonProv().contains(e.getX(), e.getY()))){
-                    vistaCli.seleccionarProvincia("0");
-                    mam = new MouseActionMove();
-                }
+
+                vistaCli.removeMouseMotionListener(mam);
+
+
                 getProvincia(numProv);
                 getCanton(numProv);
                 //getDistritoCamton("1");
+
+            }
+            if (e.getClickCount() == 2 || (!provincias.getSanJoseProv().contains(e.getX(), e.getY()) &&
+                    !provincias.getAlajuelaProv().contains(e.getX(), e.getY()) && !provincias.getCartagoProv().
+                    contains(e.getX(), e.getY()) && !provincias.getHerediaProv().contains(e.getX(), e.getY()) &&
+                    !provincias.getGuanacasteProv().contains(e.getX(), e.getY()) && !provincias.getPuntareanasProv().
+                    contains(e.getX(), e.getY()) && !provincias.getLimonProv().contains(e.getX(), e.getY()))){
+
+                vistaCli.seleccionarProvincia("0");
+                vistaCli.addMouseMotionListener(mam);
+                //vistaCli.setProvincia("");
+                //getProvincia("0");
 
             }
         }
@@ -212,6 +226,9 @@ public class controladorCliente {
             modeloCli.setListaCantones(cantones);
             List<Distrito> distritos = provincia.getCantones().get(0).getDistritos();
             modeloCli.setListaDistritos(distritos);
+            //vistaCli.setProvincia(provincia.getNombre());
+            vistaCli.setCantones(cantones);
+
         } catch (Exception exception) {
             modeloCli.setProvincia(new Provincia());
             modeloCli.setListaCantones(new ArrayList<>());
