@@ -105,27 +105,10 @@ public class vistaPrestamos extends JFrame {
     private JTable tablaLista(){
         listaPrestamos listPrestamos = new listaPrestamos();
 
-        //JAXBParser parser = new JAXBParser();
-        //parser.marshall(listPrestamos, "prestamos.xml");
-
         JTable tabla = new JTable();
         tabla.setModel(new tableModel(listPrestamos.getListaPrestamos()));
         return tabla;
     }
-
-    /*
-        //ACTIONS PERFORMED BOTONES Y TEXT FIELD
-        private void txtFieldCedulaActionPerformed(ActionEvent evt) {
-            // TODO add your handling code here:
-        }
-
-        private void bntBuscarActionPerformed(ActionEvent evt) {
-            // TODO add your handling code here:
-        }
-
-        private void btnPrestamosActionPerformed(ActionEvent evt) {
-            // TODO add your handling code here:
-        }*/
 
     public void agregaTabla(JScrollPane sp){
         if(centro.getComponentCount() > 0){
@@ -135,11 +118,4 @@ public class vistaPrestamos extends JFrame {
         centro.validate();
     }
 
-    public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new controladorPrestamos();
-            }
-        });
-    }
 }

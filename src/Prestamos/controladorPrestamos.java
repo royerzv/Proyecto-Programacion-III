@@ -55,13 +55,32 @@ public class controladorPrestamos {
                 case 1:
                     hide();
                     break;
+                case 2:
+                    Prestamo prestamo = null;
+                    try {
+                        prestamo = new Prestamo(vistaPrestamos.getidPrestamoTxt(), Double.parseDouble(vistaPrestamos.getmontoPrestamoTxt()), 3,
+                                Double.parseDouble(vistaPrestamos.getplazoPrestamoTxt()), getCliente(cedulaMain));
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                    prestamoAdd(prestamo);
+                    break;
             }
         }
     }
 
+
+    public String cedulaMain;
+
     public void setCliente(Cliente cliente){
         this.modeloPrestamos.setCliente(cliente);
         vistaPrestamos.setClienteNombre(cliente.getNombreCli());
+        cedulaMain = cliente.getCedulaCli();
+    }
+
+    public Cliente getCliente(String cedula) throws Exception {
+        Cliente cliente = Servicio.instance().clienteGet(cedula);
+        return cliente;
     }
 
     public void PrestamoGet(String prestamoIdentificador){
@@ -70,12 +89,22 @@ public class controladorPrestamos {
             modeloPrestamos.setPrestamo(prestamo);
             modeloPrestamos.setListaPrestamos(Arrays.asList(prestamo));
 
-            //this.vistaPrestamos.setClienteNombre(modeloPrestamos.getCliente().getNombreCli());
-
         }catch (Exception ex){
             modeloPrestamos.setPrestamo(new Prestamo());
             modeloPrestamos.setListaPrestamos(new ArrayList<>());
         }
+    }
+
+    public void prestamoAdd(Prestamo prestamo){
+        try {
+            Servicio.instance().prestamoAñadir(prestamo);
+            modeloPrestamos.setPrestamo(prestamo);
+            modeloPrestamos.setListaPrestamos(Arrays.asList(prestamo));
+
+        } catch (Exception ex) {
+
+        }
+
     }
 
     public void show(){
