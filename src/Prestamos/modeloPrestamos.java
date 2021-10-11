@@ -1,7 +1,7 @@
 package Prestamos;
 
+import Clases.Cliente;
 import Clases.Prestamo;
-import ClienteP.vistaCliente;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ public class modeloPrestamos {
     //private double plazo;
     private Prestamo prestamo;
     private List<Prestamo> listaPrestamos;
-    private vistaCliente cliente;
+    private Cliente cliente;
 
-    public modeloPrestamos(double monto, double tasaDeInteres, double plazo, vistaCliente cliente) {
+    public modeloPrestamos(double monto, double tasaDeInteres, double plazo, Cliente cliente) {
         //this.monto = monto;
         //this.tasaDeInteres = tasaDeInteres;
         //this.plazo = plazo;
@@ -68,11 +68,11 @@ public class modeloPrestamos {
         this.listaPrestamos = listaPrestamos;
     }
 
-    public vistaCliente getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
-    public void setCliente(vistaCliente cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 

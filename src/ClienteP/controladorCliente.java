@@ -60,13 +60,8 @@ public class controladorCliente {
                     break;
                 case 2:
                     getCliente(vistaCli.getCeduladeTxt());
-                    vistaCli.setNombre(modeloCli.getCliente().getNombreCli());
-                    vistaCli.setCantonComboBoxIndex(modeloCli.getCliente().getCantonCli());
-                    try {
-                        modeloCli.setListaCantones(Servicio.instance().provinciaGet("1").getCantones());
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
+
+
                     break;
                 case 3:
                     if(vistaCli.getCeduladeTxt().isEmpty() || vistaCli.getNombredeTxt().isEmpty() || vistaCli.getProvinciadeTxt().isEmpty()){
@@ -208,7 +203,13 @@ public class controladorCliente {
         try {
             Cliente cliente = Servicio.instance().clienteGet(cedula);
             modeloCli.setCliente(cliente);
+            vistaCli.setNombre(modeloCli.getCliente().getNombreCli());
             vistaCli.setProvincia(cliente.getProvinciaCli().getNombre());
+
+            getProvincia(cliente.getProvinciaCli().getNumero());
+
+            vistaCli.setCantonComboBoxIndex(modeloCli.getCliente().getCantonCli());
+
         } catch (Exception ex) {
             modeloCli.setCliente(new Cliente());
         }
@@ -296,6 +297,7 @@ public class controladorCliente {
     public void hide(){
         this.vistaCli.setVisible(false);
         mainClass.PRESTAMOS.show();
+        mainClass.PRESTAMOS.setCliente(modeloCli.getCliente());
     }
 
     public void exit(){

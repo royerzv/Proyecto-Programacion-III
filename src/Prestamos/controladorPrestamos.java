@@ -42,7 +42,8 @@ public class controladorPrestamos {
         //modeloCli.setListaDistritos(new ArrayList<>());
 
         //Servicio.instance();
-
+        //PrestamoGet("0");
+        //this.vistaPrestamos.setClienteNombre(this.modeloPrestamos.getCliente().getNombreCli());
     }
 
     private class ClaseAction implements ActionListener{
@@ -58,11 +59,17 @@ public class controladorPrestamos {
         }
     }
 
+    public void setCliente(Cliente cliente){
+        this.modeloPrestamos.setCliente(cliente);
+    }
+
     public void PrestamoGet(String prestamoIdentificador){
         try{
             Prestamo prestamo = Servicio.instance().prestamoGet(prestamoIdentificador);
             modeloPrestamos.setPrestamo(prestamo);
             modeloPrestamos.setListaPrestamos(Arrays.asList(prestamo));
+
+            //this.vistaPrestamos.setClienteNombre(modeloPrestamos.getCliente().getNombreCli());
 
         }catch (Exception ex){
             modeloPrestamos.setPrestamo(new Prestamo());

@@ -18,11 +18,11 @@ public class vistaPrestamos extends JFrame {
 
     //JTextField nombreTxtField = new JTextField();
 
-    JLabel nombreClienteLabel;
+    JLabel nombreClienteLabel = new JLabel("");
     JLabel nombreLabel = new JLabel("Nombre");
 
     public void setClienteNombre(String nombre){
-        nombreClienteLabel = new JLabel(nombre);
+        nombreClienteLabel.setText(nombre);
     }
 
     public void addListenner(ActionListener al){

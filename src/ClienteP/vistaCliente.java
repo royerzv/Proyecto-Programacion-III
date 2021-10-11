@@ -30,6 +30,10 @@ public class vistaCliente extends JFrame {
         provinciaTxtField.setText(provincia);
     }
 
+    public void setNombre(String nombre){
+        txtFieldNombre.setText(nombre);
+    }
+
     public void setCantones(List<Canton> alc){
         cantonComboBox.setModel(new DefaultComboBoxModel(alc.toArray()));
     }
@@ -50,10 +54,6 @@ public class vistaCliente extends JFrame {
 
     public void setDistritos(List<Distrito> alc){
         distritoComboBox.setModel(new DefaultComboBoxModel(alc.toArray()));
-    }
-
-    public void setNombre(String nombre){
-        txtFieldNombre.setText(nombre);
     }
 
     public void setCantonComboBoxIndex(Canton canton){
