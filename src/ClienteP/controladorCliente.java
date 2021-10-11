@@ -56,7 +56,11 @@ public class controladorCliente {
             int valor = Integer.parseInt(e.getActionCommand());
             switch(valor){
                 case 1:
-                    hide();
+                    try {
+                        hide(vistaCli.getCeduladeTxt());
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
                     break;
                 case 2:
                     getCliente(vistaCli.getCeduladeTxt());
@@ -294,10 +298,11 @@ public class controladorCliente {
         this.vistaCli.setVisible(true);
     }
 
-    public void hide(){
+    public void hide(String cedula) throws Exception {
         this.vistaCli.setVisible(false);
         mainClass.PRESTAMOS.show();
-        mainClass.PRESTAMOS.setCliente(modeloCli.getCliente());
+        Cliente cliente = Servicio.instance().clienteGet(cedula);
+        mainClass.PRESTAMOS.setCliente(cliente);
     }
 
     public void exit(){
