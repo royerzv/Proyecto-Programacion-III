@@ -31,6 +31,11 @@ public class vistaPrestamos extends JFrame {
     JTextField plazoPrestamoTxt = new JTextField();
 
 
+    public String getidPrestamoTxt() {return idPrestamoTxt.getText();}
+    public String getmontoPrestamoTxt() {return montoPrestamoTxt.getText();}
+    public String getplazoPrestamoTxt() {return plazoPrestamoTxt.getText();}
+
+
     public void setClienteNombre(String nombre){
         nombreClienteLabel.setText(nombre);
     }
