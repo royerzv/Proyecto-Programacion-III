@@ -20,13 +20,11 @@ public class vistaCliente extends JFrame {
     private LimitesProvincias provincias;
 
 
-    private String getNombre() {return txtFieldNombre.getText();}
-    public String getCedula() {return txtFieldCedula.getText();}
-    private String getCanton() {return (String) cantonComboBox.getSelectedItem();}
-    private String getDistrito() {return (String) distritoComboBox.getSelectedItem();}
-    public String getProvincia() {return (String) provinciaTxtField.getText();}
-
-
+    public String getNombredeTxt() {return txtFieldNombre.getText();}
+    public String getCeduladeTxt() {return txtFieldCedula.getText();}
+    public String getCantondeTxt() {return Integer.toString(cantonComboBox.getSelectedIndex());}
+    public String getDistritodeTxt() {return Integer.toString(distritoComboBox.getSelectedIndex());}
+    public String getProvinciadeTxt() {return (String) provinciaTxtField.getText();}
 
     public void setProvincia(String provincia){
         provinciaTxtField.setText(provincia);
@@ -46,10 +44,21 @@ public class vistaCliente extends JFrame {
         return cantonComboBox.getSelectedIndex();
     }
 
+    public int getDistritoIndex(){
+        return distritoComboBox.getSelectedIndex();
+    }
+
     public void setDistritos(List<Distrito> alc){
         distritoComboBox.setModel(new DefaultComboBoxModel(alc.toArray()));
     }
 
+    public void setNombre(String nombre){
+        txtFieldNombre.setText(nombre);
+    }
+
+    public void setCantonComboBoxIndex(Canton canton){
+        cantonComboBox.setSelectedItem(canton);
+    }
 
     public vistaCliente() throws HeadlessException{
         super("Clientes");
@@ -203,6 +212,7 @@ public class vistaCliente extends JFrame {
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
+
         layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addGap(19, 19, 19)
         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addComponent(txtLabelNombre)
         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED).addComponent(txtFieldNombre, GroupLayout.PREFERRED_SIZE, 171, GroupLayout.PREFERRED_SIZE))

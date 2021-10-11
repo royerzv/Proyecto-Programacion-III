@@ -3,6 +3,7 @@ package Clases;
 import jakarta.xml.bind.annotation.*;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -14,6 +15,18 @@ public class Provincia {
     private String nombre;
     @XmlIDREF
     List<Canton> cantones;
+
+    public Provincia() {
+        this.numero = "";
+        this.nombre = "";
+        this.cantones = new ArrayList<>();
+    }
+
+    public Provincia(String numero, String nombre, List<Canton> cantones) {
+        this.numero = numero;
+        this.nombre = nombre;
+        this.cantones = cantones;
+    }
 
     public String getNumero() {
         return numero;

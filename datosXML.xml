@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <data>
     <clientes>
-        <cedula>111</cedula>
-        <nombre>JUAN</nombre>
-        <provincia>1</provincia>
-        <canton>12</canton>
-        <distrito>107</distrito>
+        <cedula>123</cedula>
+        <nombre>Maria</nombre>
+        <provincia>4</provincia>
+        <canton>58</canton>
+        <distrito>384</distrito>
     </clientes>
     <clientes>
-        <cedula>222</cedula>
-        <nombre>MARIA</nombre>
-        <provincia>2</provincia>
-        <canton>32</canton>
-        <distrito>228</distrito>
+        <cedula>111</cedula>
+        <nombre>Mariaaa</nombre>
+        <provincia>5</provincia>
+        <canton>68</canton>
+        <distrito>422</distrito>
     </clientes>
-
     <provincias>
         <numero>1</numero>
         <nombre>San José</nombre>
@@ -124,7 +123,6 @@
         <cantones>90</cantones>
         <cantones>91</cantones>
     </provincias>
-
     <cantones>
         <numero>11</numero>
         <nombre>Acosta</nombre>
@@ -871,7 +869,6 @@
         <distritos>521</distritos>
         <distritos>522</distritos>
     </cantones>
-
     <distritos>
         <numero>101</numero>
         <nombre>Cangrejal</nombre>
@@ -2560,5 +2557,4 @@
         <numero>522</numero>
         <nombre>Sixaola</nombre>
     </distritos>
-
 </data>

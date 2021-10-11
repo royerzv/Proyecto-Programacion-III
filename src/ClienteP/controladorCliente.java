@@ -59,7 +59,36 @@ public class controladorCliente {
                     hide();
                     break;
                 case 2:
-                    getCliente(vistaCli.getCedula());
+                    getCliente(vistaCli.getCeduladeTxt());
+                    vistaCli.setNombre(modeloCli.getCliente().getNombreCli());
+                    vistaCli.setCantonComboBoxIndex(modeloCli.getCliente().getCantonCli());
+                    try {
+                        modeloCli.setListaCantones(Servicio.instance().provinciaGet("1").getCantones());
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                    break;
+                case 3:
+                    if(vistaCli.getCeduladeTxt().isEmpty() || vistaCli.getNombredeTxt().isEmpty() || vistaCli.getProvinciadeTxt().isEmpty()){
+
+                    }else{
+                        Provincia provincia = modeloCli.provincia;
+                        Canton canton = provincia.getCantones().get(vistaCli.getCantonIndex());
+                        Distrito distrito = canton.getDistritos().get(vistaCli.getDistritoIndex());
+                        System.out.println(distrito.getNombre());
+                        //Direccion direccion = new Direccion(provincia, canton, distrito);
+                        if(modeloCli.getCliente().getCedulaCli().equals(vistaCli.getCeduladeTxt())){
+                            Cliente cliente = new Cliente(modeloCli.getCliente().getCedulaCli(), vistaCli.getNombredeTxt(), provincia, canton, distrito);
+                            clienteEdit(cliente);
+                            System.out.println("Cliente Actualizado");
+                            exit();
+                        }else{
+                            clienteAdd(new Cliente(vistaCli.getCeduladeTxt(), vistaCli.getNombredeTxt(), provincia, canton, distrito));
+                            System.out.println("Cliente nuevo");
+                            exit();
+                        }
+                    }
+                    limpiarModelo();
                     break;
                 case 4:
                     getDistrito(vistaCli.seleccionProvincia(), vistaCli.getCantonIndex());
@@ -178,18 +207,10 @@ public class controladorCliente {
     public void getCliente(String cedula){
         try {
             Cliente cliente = Servicio.instance().clienteGet(cedula);
-            System.out.println("Cliente");
-            //Provincia provincia = Servicio.instance().provinciaGet(cliente.getDireccion().getProvincia().getNumero());
             modeloCli.setCliente(cliente);
-            System.out.println("BOTON BUS");
             vistaCli.setProvincia(cliente.getProvinciaCli().getNombre());
-            //vistaCli.setProvincia(provincia.getNombre());
-            System.out.println("BOTON BUS");
-            //vistaCli.setCanton(cliente.getDireccion().getCanton());
-            //model.commit();
         } catch (Exception ex) {
             modeloCli.setCliente(new Cliente());
-            //modeloCli.commit();
         }
     }
 
@@ -200,10 +221,8 @@ public class controladorCliente {
         //model.commit();
     }
 
-    public void clienteEdit(int row){
-        //Cliente cliente = modeloCli.getCliente().get(row);
-        //modeloCli.setCliente(cliente);
-        //modeloCli.commit();
+    public void clienteEdit(Cliente cliente){
+        modeloCli.setCliente(cliente);
     }
 
     public void clienteAdd(Cliente cliente){
@@ -263,6 +282,13 @@ public class controladorCliente {
         }
     }
 
+    public void limpiarModelo(){
+        modeloCli.setCliente(new Cliente());
+        modeloCli.setProvincia(new Provincia());
+        modeloCli.setListaCantones(new ArrayList<>());
+        modeloCli.setListaDistritos(new ArrayList<>());
+    }
+
     public void show(){
         this.vistaCli.setVisible(true);
     }
@@ -270,6 +296,10 @@ public class controladorCliente {
     public void hide(){
         this.vistaCli.setVisible(false);
         mainClass.PRESTAMOS.show();
+    }
+
+    public void exit(){
+        Servicio.instance().store();
     }
 
 

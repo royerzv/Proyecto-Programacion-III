@@ -64,11 +64,9 @@ public class controladorPrestamos {
             modeloPrestamos.setPrestamo(prestamo);
             modeloPrestamos.setListaPrestamos(Arrays.asList(prestamo));
 
-            //SE TIENE QUE AGREGAR UN REEMPLAZO DEL COMMIT METHOD
         }catch (Exception ex){
             modeloPrestamos.setPrestamo(new Prestamo());
             modeloPrestamos.setListaPrestamos(new ArrayList<>());
-            //SE TIENE QUE AGREGAR UN REEMPLAZO DEL COMMIT METHOD
         }
     }
 

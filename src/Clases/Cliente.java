@@ -2,8 +2,8 @@ package Clases;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlID;
+import jakarta.xml.bind.annotation.XmlIDREF;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Cliente {
@@ -11,11 +11,23 @@ public class Cliente {
     @XmlID
     private String cedula;
     private String nombre;
+    @XmlIDREF
     Provincia provincia;
+    @XmlIDREF
     Canton canton;
+    @XmlIDREF
     Distrito distrito;
-    //Direccion direccion;
+    /*
+    private String cedula;
+    private String nombre;
+    Direccion direccion;
 
+    public Cliente() {
+        this.cedula = "";
+        this.nombre = "";
+        this.direccion = new Direccion();
+    }
+*/
     public Cliente() {
         this.cedula = "";
         this.nombre = "";
@@ -24,6 +36,13 @@ public class Cliente {
         this.distrito = new Distrito();
         //this.direccion = new Direccion();
     }
+
+    /*
+    public Cliente(String cedulaCli, String nombre, Direccion direccion) {
+        this.cedula = cedulaCli;
+        this.nombre = nombre;
+        this.direccion = direccion;
+    }*/
 
     public Cliente(String cedulaCli, String nombre, Provincia provincia, Canton canton, Distrito distrito) {
         this.cedula = cedulaCli;
@@ -75,19 +94,21 @@ public class Cliente {
     }
 
     /*public Direccion getDireccion() {
+    /*public Direccion getDireccion() {
         return direccion;
     }
 
     public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
     }*/
+
+    }
 /*
     @Override
     public String toString() {
         return "Cliente{" +
-                "cedulaCli=" + cedulaCli +
+                "cedulaCli=" + cedula +
                 ", nombre='" + nombre + '\'' +
-                ", direccion=" + direccion +
+                //", direccion=" + direccion +
                 '}';
     }*/
-}
