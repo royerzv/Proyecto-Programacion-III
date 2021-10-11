@@ -58,18 +58,19 @@ public class controladorPrestamos {
         }
     }
 
-    /*public void PrestamoGet(String prestamoIdentificador){
+    public void PrestamoGet(String prestamoIdentificador){
         try{
             Prestamo prestamo = Servicio.instance().prestamoGet(prestamoIdentificador);
             modeloPrestamos.setPrestamo(prestamo);
             modeloPrestamos.setListaPrestamos(Arrays.asList(prestamo));
+
             //SE TIENE QUE AGREGAR UN REEMPLAZO DEL COMMIT METHOD
         }catch (Exception ex){
             modeloPrestamos.setPrestamo(new Prestamo());
             modeloPrestamos.setListaPrestamos(new ArrayList<>());
             //SE TIENE QUE AGREGAR UN REEMPLAZO DEL COMMIT METHOD
         }
-    }*/
+    }
 
     public void show(){
         this.vistaPrestamos.setVisible(true);

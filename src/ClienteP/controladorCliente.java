@@ -58,8 +58,12 @@ public class controladorCliente {
                 case 1:
                     hide();
                     break;
-                /*case 2:
-                    vistaCli.*/
+                case 2:
+                    getCliente(vistaCli.getCedula());
+                    break;
+                case 4:
+                    getDistrito(vistaCli.seleccionProvincia(), vistaCli.getCantonIndex());
+                    break;
             }
         }
     }
@@ -100,43 +104,35 @@ public class controladorCliente {
                 if (provincias.getSanJoseProv().contains(e.getX(), e.getY())) {
                     vistaCli.seleccionarProvincia("1");
                     numProv = "1";
-                    //vistaCli.setProvincia(provincia.getNombre());
-                    //vistaCli.setProvincia("San Jose");
                 } else if (provincias.getAlajuelaProv().contains(e.getX(), e.getY())) {
                     vistaCli.seleccionarProvincia("2");
                     numProv = "2";
-                   // vistaCli.setProvincia("Alajuela");
                 } else if (provincias.getCartagoProv().contains(e.getX(), e.getY())) {
                     vistaCli.seleccionarProvincia("3");
                     numProv = "3";
-                    //vistaCli.setProvincia("Cartago");
                 } else if (provincias.getHerediaProv().contains(e.getX(), e.getY())) {
                     vistaCli.seleccionarProvincia("4");
                     numProv = "4";
-                    //vistaCli.setProvincia("Heredia");
                 } else if (provincias.getGuanacasteProv().contains(e.getX(), e.getY())) {
                     vistaCli.seleccionarProvincia("5");
                     numProv = "5";
-                    //vistaCli.setProvincia("Guanacaste");
                 } else if (provincias.getPuntareanasProv().contains(e.getX(), e.getY())) {
                     vistaCli.seleccionarProvincia("6");
                     numProv = "6";
-                    //vistaCli.setProvincia("Puntarenas");
                 } else if (provincias.getLimonProv().contains(e.getX(), e.getY())) {
                     vistaCli.seleccionarProvincia("7");
                     numProv = "7";
-                   // vistaCli.setProvincia("Limon");
                 }else{
                     vistaCli.seleccionarProvincia("0");
                     numProv = "0";
-                    vistaCli.setProvincia("");
+                    //vistaCli.setProvincia("");
                 }
 
                 vistaCli.removeMouseMotionListener(mam);
 
                 getProvincia(numProv);
                 getCanton(numProv);
-                getDistrito("1");
+                getDistrito(numProv, vistaCli.getCantonIndex());
             }
             if (e.getClickCount() == 2 || (!provincias.getSanJoseProv().contains(e.getX(), e.getY()) &&
                     !provincias.getAlajuelaProv().contains(e.getX(), e.getY()) && !provincias.getCartagoProv().
@@ -146,7 +142,7 @@ public class controladorCliente {
 
                 vistaCli.seleccionarProvincia("0");
                 vistaCli.addMouseMotionListener(mam);
-                //vistaCli.setProvincia("");
+                vistaCli.setProvincia("");
                 //getProvincia("0");
 
             }
@@ -183,6 +179,8 @@ public class controladorCliente {
         try {
             Cliente cliente = Servicio.instance().clienteGet(cedula);
             modeloCli.setCliente(cliente);
+            vistaCli.setProvincia(cliente.getDireccion().getProvincia().getNombre());
+            vistaCli.setCanton(cliente.getDireccion().getCanton());
             //model.commit();
         } catch (Exception ex) {
             modeloCli.setCliente(new Cliente());
@@ -221,12 +219,13 @@ public class controladorCliente {
             modeloCli.setProvincia(provincia);
             List<Canton> cantones = provincia.getCantones();
             modeloCli.setListaCantones(cantones);
+
             List<Distrito> distritos = provincia.getCantones().get(0).getDistritos();
+
             modeloCli.setListaDistritos(distritos);
             vistaCli.setProvincia(provincia.getNombre());
             vistaCli.setCantones(cantones);
             vistaCli.setDistritos(distritos);
-
         } catch (Exception exception) {
             modeloCli.setProvincia(new Provincia());
             modeloCli.setListaCantones(new ArrayList<>());
@@ -246,10 +245,11 @@ public class controladorCliente {
         }
     }
 
-    public void getDistrito(String provincia){
+    public void getDistrito(String provincia, int canton){
         try{
             if (provincia != "0"){
-                modeloCli.setListaDistritos(Servicio.instance().provinciaGet(provincia).getCantones().get(0).getDistritos());
+                modeloCli.setListaDistritos(Servicio.instance().provinciaGet(provincia).getCantones().get(canton).getDistritos());
+                vistaCli.setDistritos(Servicio.instance().provinciaGet(provincia).getCantones().get(canton).getDistritos());
             }else {
                 modeloCli.setListaDistritos(new ArrayList<>());
             }

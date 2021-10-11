@@ -21,22 +21,29 @@ public class vistaCliente extends JFrame {
 
 
     private String getNombre() {return txtFieldNombre.getText();}
-    private String getCedula() {return txtFieldCedula.getText();}
+    public String getCedula() {return txtFieldCedula.getText();}
     private String getCanton() {return (String) cantonComboBox.getSelectedItem();}
     private String getDistrito() {return (String) distritoComboBox.getSelectedItem();}
-    private String getProvincia() {return (String) provinciaTxtField.getText();}
+    public String getProvincia() {return (String) provinciaTxtField.getText();}
+
+
 
     public void setProvincia(String provincia){
         provinciaTxtField.setText(provincia);
     }
 
     public void setCantones(List<Canton> alc){
-       /*for(int i = 0; i < alc.size(); i++){
-           System.out.println(alc.get(i).getDistritos().get(0));
-        }*/
-
         cantonComboBox.setModel(new DefaultComboBoxModel(alc.toArray()));
-        //cantonComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+    }
+
+    public void setCanton(Canton alc){
+        //cantonComboBox.setModel(new DefaultComboBoxModel(alc.toArray()));
+        cantonComboBox.addItem(alc.getNombre());
+        cantonComboBox.setSelectedIndex(0);
+    }
+
+    public int getCantonIndex(){
+        return cantonComboBox.getSelectedIndex();
     }
 
     public void setDistritos(List<Distrito> alc){
@@ -54,6 +61,8 @@ public class vistaCliente extends JFrame {
         bntArchivo.addActionListener(al);
         bntBuscar.addActionListener(al);
         btnPrestamos.addActionListener(al);
+        cantonComboBox.addActionListener(al);
+        distritoComboBox.addActionListener(al);
     }
 
     public void addMouseMotionListener(MouseMotionListener ml){
@@ -74,33 +83,32 @@ public class vistaCliente extends JFrame {
 
     public void seleccionarProvincia(String s){
         mapaProvincias.setIcon(mapasProv[Integer.parseInt(s)]);
-        //THERE'S MORE SHIT TO DO IN HERE I THINK
     }
 
-    public int seleccionProvincia() {
-        int numProvincia = 0;
+    public String seleccionProvincia() {
+        String numProvincia = "0";
         if (provinciaTxtField.getText() != null) {
             switch (provinciaTxtField.getText()) {
-                case "San Jose":
-                    numProvincia = 1;
+                case "San José":
+                    numProvincia = "1";
                     break;
                 case "Alajuela":
-                    numProvincia = 2;
+                    numProvincia = "2";
                     break;
                 case "Cartago":
-                    numProvincia = 3;
+                    numProvincia = "3";
                     break;
                 case "Heredia":
-                    numProvincia = 4;
+                    numProvincia = "4";
                     break;
                 case "Guanacaste":
-                    numProvincia = 5;
+                    numProvincia = "5";
                     break;
                 case "Puntarenas":
-                    numProvincia = 6;
+                    numProvincia = "6";
                     break;
-                case "Limon":
-                    numProvincia = 7;
+                case "Limón":
+                    numProvincia = "7";
                     break;
                 default:
                     break;
@@ -173,9 +181,12 @@ public class vistaCliente extends JFrame {
             }
         });*/
 
-        bntArchivo.setActionCommand("3");
-        bntBuscar.setActionCommand("2");
         btnPrestamos.setActionCommand("1");
+        bntBuscar.setActionCommand("2");
+        bntArchivo.setActionCommand("3");
+        cantonComboBox.setActionCommand("4");
+        distritoComboBox.setActionCommand("5");
+
 
         // MAS ACTIONS LISTENER
        /* txtFieldCedula.addActionListener(new java.awt.event.ActionListener() {
@@ -227,7 +238,7 @@ public class vistaCliente extends JFrame {
         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED).addComponent(bntBuscar, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
         .addGroup(layout.createSequentialGroup().addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
         .addGroup(layout.createSequentialGroup().addComponent(provinciaTxtLabel).addGap(86, 86, 86).addComponent(cantonTxtLabel).addGap(97, 97, 97))
-        .addGroup(layout.createSequentialGroup().addComponent(provinciaTxtField).addGap(18, 18, 18).addComponent(cantonComboBox, GroupLayout.PREFERRED_SIZE, 218, GroupLayout.PREFERRED_SIZE)
+        .addGroup(layout.createSequentialGroup().addComponent(provinciaTxtField).addGap(18, 18, 18).addComponent(cantonComboBox, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
         .addGap(18, 18, 18))).addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(distritoTxtLabel).addGroup(layout.createSequentialGroup()
         .addComponent(distritoComboBox, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE).addGap(28, 28, 28)
         .addComponent(bntArchivo, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)))).addComponent(mapaProvincias, GroupLayout.PREFERRED_SIZE, 447, GroupLayout.PREFERRED_SIZE))

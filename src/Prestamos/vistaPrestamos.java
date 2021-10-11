@@ -3,17 +3,27 @@ package Prestamos;
 import Parser.JAXBParser;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class vistaPrestamos extends JFrame {
     JPanel total = new JPanel(new BorderLayout());
     JPanel sur = new JPanel(new FlowLayout());
-    JPanel norte = new JPanel(new FlowLayout());
+    JPanel norte = new JPanel(new BorderLayout());
     JPanel centro = new JPanel(new FlowLayout());
 
     JButton bRegresar = new JButton("Regresar");
     JButton bAgregar = new JButton("Agregar");
+
+    //JTextField nombreTxtField = new JTextField();
+
+    JLabel nombreClienteLabel;
+    JLabel nombreLabel = new JLabel("Nombre");
+
+    public void setClienteNombre(String nombre){
+        nombreClienteLabel = new JLabel(nombre);
+    }
 
     public void addListenner(ActionListener al){
         bRegresar.addActionListener(al);
@@ -39,8 +49,24 @@ public class vistaPrestamos extends JFrame {
 
         sur.add(bRegresar);
 
+        JPanel test = new JPanel(new BorderLayout());
+
+        nombreLabel.setPreferredSize(new Dimension(0,10));
+        nombreClienteLabel.setPreferredSize(new Dimension(100, 20));
+
+       // nombreTxtField.setBorder(new EmptyBorder(0,0,0,0));
+
+        norte.add(test, BorderLayout.WEST);
+
+
+
+        test.setLayout(new GridLayout(1,2));
+        test.add(nombreLabel);
+        test.add(nombreClienteLabel);
+
         total.add(sur, BorderLayout.SOUTH);
         total.add(centro, BorderLayout.CENTER);
+        total.add(norte, BorderLayout.NORTH);
         contentPane.add(total);
 
         JTable jtLista = tablaLista();
@@ -81,12 +107,12 @@ public class vistaPrestamos extends JFrame {
         centro.add(sp);
         centro.validate();
     }
-/*
+
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new controladorPrestamos();
             }
         });
-    }*/
+    }
 }
