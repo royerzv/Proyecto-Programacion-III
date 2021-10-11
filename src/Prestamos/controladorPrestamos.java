@@ -61,6 +61,7 @@ public class controladorPrestamos {
 
     public void setCliente(Cliente cliente){
         this.modeloPrestamos.setCliente(cliente);
+        vistaPrestamos.setClienteNombre(cliente.getNombreCli());
     }
 
     public void PrestamoGet(String prestamoIdentificador){
