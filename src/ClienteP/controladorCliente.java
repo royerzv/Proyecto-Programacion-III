@@ -178,9 +178,14 @@ public class controladorCliente {
     public void getCliente(String cedula){
         try {
             Cliente cliente = Servicio.instance().clienteGet(cedula);
+            System.out.println("Cliente");
+            //Provincia provincia = Servicio.instance().provinciaGet(cliente.getDireccion().getProvincia().getNumero());
             modeloCli.setCliente(cliente);
-            vistaCli.setProvincia(cliente.getDireccion().getProvincia().getNombre());
-            vistaCli.setCanton(cliente.getDireccion().getCanton());
+            System.out.println("BOTON BUS");
+            vistaCli.setProvincia(cliente.getProvinciaCli().getNombre());
+            //vistaCli.setProvincia(provincia.getNombre());
+            System.out.println("BOTON BUS");
+            //vistaCli.setCanton(cliente.getDireccion().getCanton());
             //model.commit();
         } catch (Exception ex) {
             modeloCli.setCliente(new Cliente());

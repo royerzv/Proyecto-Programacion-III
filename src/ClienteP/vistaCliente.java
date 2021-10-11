@@ -157,11 +157,9 @@ public class vistaCliente extends JFrame {
 
         //DISTRITO COMBOBOX
         distritoComboBox = new JComboBox<>();
-        //distritoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
 
         //CANTON COMBOBOX
         cantonComboBox = new JComboBox<>();
-        //cantonComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
 
         //Provincia Campo Texto
         provinciaTxtField = new JTextField();
@@ -198,32 +196,6 @@ public class vistaCliente extends JFrame {
         /*bntBuscar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 //bntBuscarActionPerformed(evt);
-            }
-        });*/
-
-        /*
-        mapaProvincias.addMouseMotionListener(new MouseMotionAdapter() {
-            private void mapaProvinciasMouseClicked(MouseEvent evt) {
-                String provIndex = "0";
-                if (evt.getClickCount() == 1) {
-                    if (provincias.getSanJoseProv().contains(evt.getX(), evt.getY())) {
-                        provIndex = "1";
-                    } else if (provincias.getAlajuelaProv().contains(evt.getX(), evt.getY())) {
-                        provIndex = "2";
-                    } else if (provincias.getCartagoProv().contains(evt.getX(), evt.getY())) {
-                        provIndex = "3";
-                    } else if (provincias.getHerediaProv().contains(evt.getX(), evt.getY())) {
-                        provIndex = "4";
-                    } else if (provincias.getGuanacasteProv().contains(evt.getX(), evt.getY())) {
-                        provIndex = "5";
-                    } else if (provincias.getPuntareanasProv().contains(evt.getX(), evt.getY())) {
-                        provIndex = "6";
-                    } else if (provincias.getLimonProv().contains(evt.getX(), evt.getY())) {
-                        provIndex = "7";
-                    }
-                    mapaProvincias.setIcon(mapasProv[Integer.parseInt(provIndex)]);
-
-                }
             }
         });*/
 

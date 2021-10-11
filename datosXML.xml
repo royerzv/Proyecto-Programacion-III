@@ -3,7 +3,6 @@
     <clientes>
         <cedula>111</cedula>
         <nombre>JUAN</nombre>
-        <telefono>212121</telefono>
         <provincia>1</provincia>
         <canton>12</canton>
         <distrito>107</distrito>
@@ -11,7 +10,6 @@
     <clientes>
         <cedula>222</cedula>
         <nombre>MARIA</nombre>
-        <telefono>222222</telefono>
         <provincia>2</provincia>
         <canton>32</canton>
         <distrito>228</distrito>
