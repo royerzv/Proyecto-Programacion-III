@@ -27,23 +27,6 @@ public class controladorPrestamos {
 
         this.vistaPrestamos.addListenner(new ClaseAction());
 
-        //modeloPrestamos.setCliente(new Cliente());
-
-        //Provinvias
-        //modeloCli.setListaProvincias(Servicio.instance().provinciaTodo());
-        //modeloCli.setProvincia(new Provincia());
-
-        //Cantones
-        //modeloCli.setCanton(new Canton());
-        //modeloCli.setListaCantones(new ArrayList<>());
-
-        //Distritos
-        //modeloCli.setDistrito(new Distrito());
-        //modeloCli.setListaDistritos(new ArrayList<>());
-
-        //Servicio.instance();
-        //PrestamoGet("0");
-        //this.vistaPrestamos.setClienteNombre(this.modeloPrestamos.getCliente().getNombreCli());
     }
 
     private class ClaseAction implements ActionListener{

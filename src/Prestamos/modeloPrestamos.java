@@ -6,17 +6,13 @@ import Clases.Prestamo;
 import java.util.List;
 
 public class modeloPrestamos {
-    //private double monto;
-    //private double tasaDeInteres;
-    //private double plazo;
+
     private Prestamo prestamo;
     private List<Prestamo> listaPrestamos;
     private Cliente cliente;
 
     public modeloPrestamos(double monto, double tasaDeInteres, double plazo, Cliente cliente) {
-        //this.monto = monto;
-        //this.tasaDeInteres = tasaDeInteres;
-        //this.plazo = plazo;
+
         this.cliente = cliente;
     }
 
@@ -26,31 +22,7 @@ public class modeloPrestamos {
         //this.plazo = 0;
         this.cliente = null;
     }
-/*
-    public double getMonto() {
-        return monto;
-    }
 
-    public void setMonto(double monto) {
-        this.monto = monto;
-    }
-
-    public double getTasaDeInteres() {
-        return tasaDeInteres;
-    }
-
-    public void setTasaDeInteres(double tasaDeInteres) {
-        this.tasaDeInteres = tasaDeInteres;
-    }
-
-    public double getPlazo() {
-        return plazo;
-    }
-
-    public void setPlazo(double plazo) {
-        this.plazo = plazo;
-    }
-*/
 
     public Prestamo getPrestamo() {
         return prestamo;

@@ -17,32 +17,15 @@ public class Cliente {
     Canton canton;
     @XmlIDREF
     Distrito distrito;
-    /*
-    private String cedula;
-    private String nombre;
-    Direccion direccion;
 
-    public Cliente() {
-        this.cedula = "";
-        this.nombre = "";
-        this.direccion = new Direccion();
-    }
-*/
     public Cliente() {
         this.cedula = "";
         this.nombre = "";
         this.provincia = new Provincia();
         this.canton = new Canton();
         this.distrito = new Distrito();
-        //this.direccion = new Direccion();
-    }
 
-    /*
-    public Cliente(String cedulaCli, String nombre, Direccion direccion) {
-        this.cedula = cedulaCli;
-        this.nombre = nombre;
-        this.direccion = direccion;
-    }*/
+    }
 
     public Cliente(String cedulaCli, String nombre, Provincia provincia, Canton canton, Distrito distrito) {
         this.cedula = cedulaCli;
@@ -50,7 +33,6 @@ public class Cliente {
         this.provincia = provincia;
         this.canton = canton;
         this.distrito = distrito;
-        //this.direccion = direccion;
     }
 
     public String getCedulaCli() {
@@ -92,23 +74,5 @@ public class Cliente {
     public void setDistrito(Distrito distrito) {
         this.distrito = distrito;
     }
+}
 
-    /*public Direccion getDireccion() {
-    /*public Direccion getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(Direccion direccion) {
-        this.direccion = direccion;
-    }*/
-
-    }
-/*
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "cedulaCli=" + cedula +
-                ", nombre='" + nombre + '\'' +
-                //", direccion=" + direccion +
-                '}';
-    }*/
